@@ -206,7 +206,8 @@ a {
   gap: 0.75rem;
 }
 
-.video-card iframe {
+.video-card iframe,
+.video-card video {
   width: 100%;
   aspect-ratio: 16 / 9;
   border: none;
@@ -218,6 +219,31 @@ a {
 .video-card figcaption {
   font-weight: 600;
   color: var(--muted);
+}
+
+.audio-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.audio-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.audio-card h3 {
+  margin: 0;
+}
+
+.audio-card audio {
+  width: 100%;
 }
 
 .grid {

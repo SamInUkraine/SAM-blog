@@ -46,11 +46,14 @@
       border-radius: 16px;
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
       background: #0f0f13;
+      overflow: hidden;
     }
+    .media-frame img,
     .media-frame video {
       width: 100%;
       height: 100%;
       border-radius: 16px;
+      display: block;
     }
     .audio-frame {
       border-radius: 16px;
@@ -174,60 +177,83 @@
     </section>
 
     <section class="py-20">
+      <div class="container mx-auto px-6 space-y-12">
+        <div>
+          <div class="flex items-center gap-4 mb-3">
+            <h2 class="text-3xl font-bold">Seventy Seven</h2>
+            <span class="px-2 py-0.5 rounded bg-white/10 text-xs font-mono">Group</span>
+          </div>
+          <p class="text-gray-400 italic">Group performances, social clips, and live session highlights.</p>
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+          <a href="https://www.tiktok.com/@stage2_group?_r=1&_t=ZM-92xePl1nqQ7" target="_blank" rel="noopener" class="glass px-4 py-2 rounded-full text-sm font-semibold hover:bg-white/10 transition flex items-center gap-2">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.03 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+            </svg>
+            @stage2_group
+          </a>
+          <a href="https://www.tiktok.com/@seventy.seven55?_r=1&_t=ZM-92xeNak858e" target="_blank" rel="noopener" class="glass px-4 py-2 rounded-full text-sm font-semibold hover:bg-white/10 transition flex items-center gap-2">
+            @seventy.seven55
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="space-y-3">
+            <div class="media-frame p-2">
+              <video controls preload="metadata">
+                <source src="media/perf_stage2_1.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <p class="text-sm font-medium text-gray-300 px-1 italic">Session video 1</p>
+          </div>
+          <div class="space-y-3">
+            <div class="media-frame p-2">
+              <video controls preload="metadata">
+                <source src="media/perf_stage2_2.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <p class="text-sm font-medium text-gray-300 px-1 italic">Session video 2</p>
+          </div>
+          <div class="space-y-3">
+            <div class="media-frame p-2">
+              <video controls preload="metadata">
+                <source src="media/perf_stage2_3.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <p class="text-sm font-medium text-gray-300 px-1 italic">Session video 3</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="space-y-3">
+            <div class="media-frame">
+              <img src="media/77_1.jpg" alt="Seventy Seven group photo" />
+            </div>
+            <p class="text-sm font-medium text-gray-300 px-1 italic">Group photo</p>
+          </div>
+          <div class="space-y-3">
+            <div class="media-frame">
+              <img src="media/77_2.jpg" alt="Seventy Seven concert photo 1" />
+            </div>
+            <p class="text-sm font-medium text-gray-300 px-1 italic">Concert moment 1</p>
+          </div>
+          <div class="space-y-3">
+            <div class="media-frame">
+              <img src="media/77_3.jpg" alt="Seventy Seven concert photo 2" />
+            </div>
+            <p class="text-sm font-medium text-gray-300 px-1 italic">Concert moment 2</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-white/[0.02]">
       <div class="container mx-auto px-6">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div class="space-y-8">
-            <div>
-              <div class="flex items-center gap-4 mb-2">
-                <h2 class="text-3xl font-bold">Seventy Seven</h2>
-                <span class="px-2 py-0.5 rounded bg-white/10 text-xs font-mono">Group</span>
-              </div>
-              <p class="text-gray-400 italic">Group performances, social clips, and live session highlights.</p>
-            </div>
-
-            <div class="flex flex-wrap gap-3">
-              <a href="https://www.tiktok.com/@stage2_group?_r=1&_t=ZM-92xePl1nqQ7" target="_blank" rel="noopener" class="glass px-4 py-2 rounded-full text-sm font-semibold hover:bg-white/10 transition flex items-center gap-2">
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.03 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
-                </svg>
-                @stage2_group
-              </a>
-              <a href="https://www.tiktok.com/@seventy.seven55?_r=1&_t=ZM-92xeNak858e" target="_blank" rel="noopener" class="glass px-4 py-2 rounded-full text-sm font-semibold hover:bg-white/10 transition flex items-center gap-2">
-                @seventy.seven55
-              </a>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div class="space-y-3">
-                <div class="media-frame p-2">
-                  <video controls preload="metadata">
-                    <source src="media/perf_stage2_1.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="text-sm font-medium text-gray-300 px-1 italic">Session video 1</p>
-              </div>
-              <div class="space-y-3">
-                <div class="media-frame p-2">
-                  <video controls preload="metadata">
-                    <source src="media/perf_stage2_2.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="text-sm font-medium text-gray-300 px-1 italic">Session video 2</p>
-              </div>
-              <div class="space-y-3">
-                <div class="media-frame p-2">
-                  <video controls preload="metadata">
-                    <source src="media/perf_stage2_3.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="text-sm font-medium text-gray-300 px-1 italic">Session video 3</p>
-              </div>
-            </div>
-          </div>
-
           <div class="space-y-8">
             <div>
               <div class="flex items-center gap-4 mb-2">
@@ -266,27 +292,27 @@
                 <p class="text-sm font-medium text-gray-300 px-1 italic">SAMusic video 2</p>
               </div>
             </div>
+          </div>
 
-            <div class="space-y-4">
-              <div>
-                <h2 class="text-2xl font-bold mb-2">My songs</h2>
-                <p class="text-gray-400">Original tracks available to stream directly from this page.</p>
+          <div class="space-y-6">
+            <div>
+              <h2 class="text-2xl font-bold mb-2">My songs</h2>
+              <p class="text-gray-400">Original tracks available to stream directly from this page.</p>
+            </div>
+            <div class="grid grid-cols-1 gap-4">
+              <div class="audio-frame p-5 space-y-3">
+                <h3 class="text-lg font-semibold">Feeling</h3>
+                <audio controls preload="metadata">
+                  <source src="media/music_1.mp3" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
               </div>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="audio-frame p-5 space-y-3">
-                  <h3 class="text-lg font-semibold">Feeling</h3>
-                  <audio controls preload="metadata">
-                    <source src="media/music_1.mp3" type="audio/mpeg" />
-                    Your browser does not support the audio element.
-                  </audio>
-                </div>
-                <div class="audio-frame p-5 space-y-3">
-                  <h3 class="text-lg font-semibold">You Think You Have Time</h3>
-                  <audio controls preload="metadata">
-                    <source src="media/music_2.mp3" type="audio/mpeg" />
-                    Your browser does not support the audio element.
-                  </audio>
-                </div>
+              <div class="audio-frame p-5 space-y-3">
+                <h3 class="text-lg font-semibold">You Think You Have Time</h3>
+                <audio controls preload="metadata">
+                  <source src="media/music_2.mp3" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
               </div>
             </div>
           </div>

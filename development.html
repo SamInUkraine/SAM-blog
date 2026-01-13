@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Development | SAM Resume</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: "Manrope", sans-serif;
+      background-color: #0a0a0c;
+      color: #f4f4f5;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .nav-link {
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #8b5cf6;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #a78bfa 0%, #f472b6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .media-frame {
+      border-radius: 16px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      background: #0f0f13;
+      overflow: hidden;
+    }
+    .media-frame img,
+    .media-frame video {
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      display: block;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-purple-500/30">
+  <header class="sticky top-0 z-50 glass border-b border-white/10">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center font-bold text-xl">S</div>
+          <div>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-purple-400 font-bold leading-none mb-1">Portfolio</p>
+            <h1 class="text-lg font-extrabold tracking-tight">DEVELOPMENT</h1>
+          </div>
+        </div>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-gray-400">
+          <a href="index.html" class="nav-link hover:text-white">Me</a>
+          <a href="travel.html" class="nav-link hover:text-white">Travel</a>
+          <a href="music.html" class="nav-link hover:text-white">Music</a>
+          <a href="school.html" class="nav-link hover:text-white">School</a>
+          <a href="rd.html" class="nav-link hover:text-white">R&amp;D</a>
+          <a href="development.html" class="nav-link active text-white">Development</a>
+          <a href="research.html" class="nav-link hover:text-white">Research</a>
+          <a href="church.html" class="nav-link hover:text-white">Church</a>
+          <a href="other-projects.html" class="nav-link hover:text-white">Other Projects</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="relative pt-20 pb-16 overflow-hidden">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-6xl pointer-events-none">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-600/10 rounded-full blur-[120px]"></div>
+      </div>
+      <div class="container mx-auto px-6 relative text-center">
+        <span class="inline-block px-4 py-1 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-xs font-bold uppercase tracking-widest mb-6">Engineering</span>
+        <h2 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">Building meaningful <span class="gradient-text">digital experiences.</span></h2>
+        <p class="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl leading-relaxed">
+          I design and build digital experiences with a focus on clarity, accessibility,
+          and long-term maintainability. I love collaborating with designers and researchers
+          to bring prototypes to life.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="glass p-8 rounded-2xl hover:bg-white/5 transition-colors">
+            <h3 class="text-xl font-bold mb-3">Web apps</h3>
+            <p class="text-gray-400 leading-relaxed">Full-stack builds for dashboards, storytelling, and community engagement.</p>
+          </div>
+          <div class="glass p-8 rounded-2xl hover:bg-white/5 transition-colors">
+            <h3 class="text-xl font-bold mb-3">Creative tooling</h3>
+            <p class="text-gray-400 leading-relaxed">Interactive experiments in generative design, audio, and data visualization.</p>
+          </div>
+          <div class="glass p-8 rounded-2xl hover:bg-white/5 transition-colors">
+            <h3 class="text-xl font-bold mb-3">Design systems</h3>
+            <p class="text-gray-400 leading-relaxed">Component libraries and documentation that keep teams aligned.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-white/[0.02]">
+      <div class="container mx-auto px-6 space-y-12">
+        <div>
+          <div class="flex items-center gap-4 mb-3">
+            <h2 class="text-3xl font-bold">Legend of Numbers</h2>
+            <span class="px-2 py-0.5 rounded bg-white/10 text-xs font-mono">Game</span>
+          </div>
+          <p class="text-gray-400">Educational mobile game focused on number skills and logic challenges.</p>
+          <div class="flex flex-wrap gap-3 mt-4">
+            <a href="https://play.google.com/store/apps/details?id=com.SAM.LegendofNumbers" target="_blank" rel="noopener" class="glass px-4 py-2 rounded-full text-sm font-semibold hover:bg-white/10 transition">Google Play</a>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="media-frame">
+            <img src="media/lon_1.png" alt="Legend of Numbers screenshot 1" />
+          </div>
+          <div class="media-frame">
+            <img src="media/lon_2.png" alt="Legend of Numbers screenshot 2" />
+          </div>
+          <div class="media-frame">
+            <img src="media/lon_3.png" alt="Legend of Numbers screenshot 3" />
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <div class="media-frame p-2">
+            <video controls preload="metadata">
+              <source src="media/lon_4.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <p class="text-sm font-medium text-gray-300 px-1 italic">Legend of Numbers trailer</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20">
+      <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="space-y-6">
+          <div>
+            <h2 class="text-3xl font-bold mb-2">Digit Recognizer</h2>
+            <p class="text-gray-400">A machine learning experiment to classify handwritten digits.</p>
+          </div>
+          <div class="media-frame">
+            <img src="media/digit_recognizer.png" alt="Digit recognizer project" />
+          </div>
+          <a href="https://github.com/SamInUkraine/digit-recognizer" target="_blank" rel="noopener" class="glass px-4 py-2 rounded-full text-sm font-semibold hover:bg-white/10 transition w-fit">View on GitHub</a>
+        </div>
+
+        <div class="space-y-6">
+          <div>
+            <h2 class="text-3xl font-bold mb-2">Website</h2>
+            <p class="text-gray-400">Community website build highlighting local programs and updates.</p>
+          </div>
+          <a href="https://sites.google.com/site/krivoyrogktg/" target="_blank" rel="noopener" class="glass px-4 py-2 rounded-full text-sm font-semibold hover:bg-white/10 transition w-fit">Visit the website</a>
+          <div class="glass p-6 rounded-2xl">
+            <h3 class="text-lg font-semibold mb-2">Delivery style</h3>
+            <p class="text-gray-400">Rapid iteration, clear documentation, and collaborative handoffs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-16 border-t border-white/10">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-2xl font-bold mb-4 tracking-tight">Open to <span class="gradient-text">product collaborations.</span></h2>
+      <p class="text-gray-500 mb-8 max-w-lg mx-auto">Let’s build something impactful together.</p>
+    </div>
+  </footer>
+</body>
+</html>

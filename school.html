@@ -47,59 +47,87 @@
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
       background: #0f0f13;
       overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
     .media-frame img,
     .media-frame video {
       width: 100%;
       height: 100%;
-      border-radius: 16px;
+      object-fit: cover;
       display: block;
     }
+    
+    /* Улучшенная карточка диплома */
     .step-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
       border-radius: 24px;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(12px);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
+    .step-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(139, 92, 246, 0.4);
+    }
+
+    /* Модальное окно */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
       display: none;
       align-items: center;
       justify-content: center;
-      z-index: 50;
+      z-index: 100;
+      padding: 20px;
     }
     .modal-overlay.active {
       display: flex;
+      animation: fadeIn 0.3s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
     .modal-content {
-      width: min(95vw, 960px);
-      max-height: 90vh;
-      background: #151518;
-      border-radius: 24px;
+      width: 100%;
+      max-width: 900px;
+      max-height: 85vh;
+      background: #121215;
+      border-radius: 32px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      box-shadow: 0 0 50px rgba(139, 92, 246, 0.15);
     }
     .modal-body {
       overflow-y: auto;
+      padding: 40px;
     }
     .modal-body::-webkit-scrollbar {
-      width: 6px;
-    }
-    .modal-body::-webkit-scrollbar-track {
-      background: transparent;
+      width: 5px;
     }
     .modal-body::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 10px;
     }
+    
+    .grade-badge {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 8px;
+    }
+    .grade-perfect { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+    .grade-good { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
   </style>
 </head>
 <body class="antialiased selection:bg-purple-500/30">
+  
   <header class="sticky top-0 z-50 glass border-b border-white/10">
     <div class="container mx-auto px-6 py-4">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4">
@@ -132,7 +160,7 @@
       </div>
       <div class="container mx-auto px-6 relative text-center">
         <span class="inline-block px-4 py-1 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-xs font-bold uppercase tracking-widest mb-6">Education</span>
-        <h2 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">Academic journey &amp; <span class="gradient-text">learning milestones.</span></h2>
+        <h2 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">Academic journey & <span class="gradient-text">learning milestones.</span></h2>
         <p class="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl leading-relaxed">
           My academic path connects design, technology, and human behavior. I prioritize
           studio-based learning and research labs that push me to build, test, and iterate.
@@ -140,248 +168,229 @@
       </div>
     </section>
 
+    <!-- Иерархия карточек обучения -->
     <section class="py-12">
       <div class="container mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="glass p-8 rounded-2xl hover:bg-white/5 transition-colors">
-            <h3 class="text-xl font-bold mb-3">Major + concentration</h3>
+            <h3 class="text-xl font-bold mb-3 text-purple-400">Future Focus</h3>
             <p class="text-gray-400 leading-relaxed">Focused on creative technology, applied research, and communication systems.</p>
           </div>
           <div class="glass p-8 rounded-2xl hover:bg-white/5 transition-colors">
-            <h3 class="text-xl font-bold mb-3">Favorite courses</h3>
+            <h3 class="text-xl font-bold mb-3 text-purple-400">Favorite Courses</h3>
             <p class="text-gray-400 leading-relaxed">Human-centered design, experimental media, data storytelling, and ethics.</p>
           </div>
           <div class="glass p-8 rounded-2xl hover:bg-white/5 transition-colors">
-            <h3 class="text-xl font-bold mb-3">Campus leadership</h3>
+            <h3 class="text-xl font-bold mb-3 text-purple-400">Leadership</h3>
             <p class="text-gray-400 leading-relaxed">Led student organizations, hosted workshops, and supported peer mentorship.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="py-20 bg-white/[0.02]">
-      <div class="container mx-auto px-6 space-y-16">
-        <div>
-          <h2 class="text-3xl font-bold mb-6">Volunteering</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="media-frame"><img src="media/volunteering_1.jpg" alt="Volunteering photo 1" /></div>
-            <div class="media-frame"><img src="media/volunteering_2.jpg" alt="Volunteering photo 2" /></div>
-            <div class="media-frame"><img src="media/volunteering_3.jpg" alt="Volunteering photo 3" /></div>
-            <div class="media-frame"><img src="media/volunteering_4.jpg" alt="Volunteering photo 4" /></div>
-            <div class="media-frame"><img src="media/volunteering_5.jpg" alt="Volunteering photo 5" /></div>
+    <section class="py-20 space-y-32">
+      
+      <!-- IT STEP ACADEMY SECTION -->
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-end justify-between mb-10 gap-4">
+          <div>
+            <h2 class="text-3xl font-bold mb-2">IT STEP Academy</h2>
+            <p class="text-gray-500">Professional computer education and technical certification.</p>
           </div>
+          <div class="hidden md:block h-px flex-1 bg-white/10 mx-8 mb-4"></div>
         </div>
 
-        <div>
-          <h2 class="text-3xl font-bold mb-6">REP</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div class="media-frame"><img src="media/rep_1.jpg" alt="REP photo 1" /></div>
-            <div class="media-frame"><img src="media/rep_2.png" alt="REP photo 2" /></div>
-            <div class="media-frame"><img src="media/rep_3.jpg" alt="REP photo 3" /></div>
-          </div>
-        </div>
-
-        <div>
-          <h2 class="text-3xl font-bold mb-6">Cinema</h2>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div class="media-frame p-2">
-              <video controls preload="metadata">
-                <source src="media/cinema_3.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-8">
+          <!-- Карточка-превью -->
+          <div id="open-step-modal" class="step-card p-8 group cursor-pointer relative overflow-hidden">
+            <!-- Фоновая иконка -->
+            <div class="absolute -top-4 -right-4 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity">
+              <svg class="w-48 h-48 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zm-7 8v6l7 3 7-3v-6l-7 3-7-3z"/></svg>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div class="media-frame"><img src="media/cinema_1.webp" alt="Cinema photo 1" /></div>
-              <div class="media-frame"><img src="media/cinema_2.jpg" alt="Cinema photo 2" /></div>
-              <div class="media-frame"><img src="media/cinema_4.webp" alt="Cinema photo 3" /></div>
-            </div>
-          </div>
-        </div>
 
-        <div>
-          <h2 class="text-3xl font-bold mb-6">IT STEP Academy</h2>
-          <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-6">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-start">
-              <div class="step-card p-6 space-y-5 relative overflow-hidden cursor-pointer transition-all hover:bg-white/10 group" id="open-step-modal" role="button" tabindex="0" aria-label="View full transcript and diploma">
-                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
-                  <svg class="w-20 h-20 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M12 2 2 7l10 5 10-5-10-5zm-7 8v6l7 3 7-3v-6l-7 3-7-3z"></path>
-                  </svg>
+            <div class="relative z-10">
+              <div class="flex items-center gap-5 mb-8">
+                <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center shadow-xl shadow-emerald-500/20 group-hover:scale-110 transition-transform">
+                   <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
-                <div class="flex items-center gap-4">
-                  <div class="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-500/20">
-                    <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path d="M11.1 2.5 8 3.7 4.9 2.5 3 5.2 5.3 7.5 4.8 11l3.2 1.5L8 15.9l3.1-1.2 3.1 1.2-.3-3.4L17 11l-.5-3.5 2.3-2.3-1.9-2.7-3.1 1.2-3.2-1.2z"></path>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 class="font-bold text-lg">IT STEP Academy</h3>
-                    <p class="text-emerald-300 text-sm flex items-center gap-1">
-                      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M9.2 16.2 4.8 11.8l1.4-1.4 3 3 8.8-8.8 1.4 1.4-10.2 10.2z"></path>
-                      </svg>
-                      Junior Computer Academy
-                    </p>
-                  </div>
-                </div>
-                <div class="space-y-2 text-sm text-gray-300">
-                  <div class="flex items-center justify-between">
-                    <span class="text-gray-400">Average Grade</span>
-                    <span class="font-mono text-emerald-400 font-bold">11.7/12.0</span>
-                  </div>
-                  <div class="flex items-center justify-between">
-                    <span class="text-gray-400">Total Subjects</span>
-                    <span class="font-mono">27</span>
-                  </div>
-                </div>
-                <div class="flex items-center justify-between text-xs font-semibold text-purple-400 uppercase tracking-widest group-hover:translate-x-1 transition-transform">
-                  View full transcript &amp; diploma
-                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="m9 6 6 6-6 6-1.4-1.4 4.6-4.6-4.6-4.6L9 6z"></path>
-                  </svg>
+                <div>
+                  <h3 class="text-2xl font-extrabold text-white">IT STEP Academy</h3>
+                  <p class="text-emerald-400 text-sm font-medium">Junior Computer Academy</p>
                 </div>
               </div>
-              <div class="media-frame"><img src="media/grad_photo_3.jpg" alt="IT STEP Academy graduation photo" /></div>
-            </div>
-          </div>
-        </div>
 
-        <div>
-          <h2 class="text-3xl font-bold mb-6">Graduation</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div class="media-frame"><img src="media/grad_photo_1.jpg" alt="Graduation portrait photo 1" /></div>
-            <div class="media-frame"><img src="media/grad_photo_2.jpg" alt="Graduation portrait photo 2" /></div>
-          </div>
-        </div>
-
-        <div>
-          <h2 class="text-3xl font-bold mb-6">Contests</h2>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div class="space-y-4">
-              <h3 class="text-xl font-semibold">History contests</h3>
-              <div class="media-frame"><img src="media/contests_3.jpg" alt="History contest photo" /></div>
-            </div>
-            <div class="space-y-4">
-              <h3 class="text-xl font-semibold">Film contests</h3>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div class="media-frame"><img src="media/contests_1.jpg" alt="Film contest photo 1" /></div>
-                <div class="media-frame"><img src="media/contests_2.jpg" alt="Film contest photo 2" /></div>
-                <div class="media-frame"><img src="media/contests_4.jpg" alt="Film contest photo 3" /></div>
+              <div class="space-y-4 mb-10">
+                <div class="flex justify-between items-center py-2 border-b border-white/5">
+                  <span class="text-gray-400">Status</span>
+                  <span class="text-white font-semibold">Graduated with Honors</span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-white/5">
+                  <span class="text-gray-400">Total Subjects</span>
+                  <span class="text-white font-mono font-bold">27</span>
+                </div>
+                <div class="flex justify-between items-center py-2">
+                  <span class="text-gray-400">Avg. Grade</span>
+                  <span class="text-emerald-400 font-mono font-black text-xl">11.7/12.0</span>
+                </div>
               </div>
+
+              <div class="flex items-center justify-between text-xs font-bold text-purple-400 uppercase tracking-widest group-hover:text-white transition-colors">
+                View Detailed Transcript
+                <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Сетка фото (уменьшена для баланса) -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="media-frame h-full"><img src="media/grad_photo_3.jpg" alt="Graduation" /></div>
+            <div class="grid grid-rows-2 gap-4">
+               <div class="media-frame"><img src="media/grad_photo_1.jpg" alt="Portrait 1" /></div>
+               <div class="media-frame"><img src="media/grad_photo_2.jpg" alt="Portrait 2" /></div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Cinema Section -->
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-8">Cinema & Media</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="media-frame aspect-video bg-black flex items-center justify-center">
+            <video controls class="w-full h-full">
+              <source src="media/cinema_3.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="media-frame"><img src="media/cinema_1.webp" alt="Cinema 1"></div>
+            <div class="media-frame"><img src="media/cinema_2.jpg" alt="Cinema 2"></div>
+            <div class="media-frame col-span-2"><img src="media/cinema_4.webp" alt="Cinema 4"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Volunteering -->
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-8">Volunteering</h2>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <div class="media-frame aspect-square"><img src="media/volunteering_1.jpg" alt="V1"></div>
+          <div class="media-frame aspect-square"><img src="media/volunteering_2.jpg" alt="V2"></div>
+          <div class="media-frame aspect-square"><img src="media/volunteering_3.jpg" alt="V3"></div>
+          <div class="media-frame aspect-square"><img src="media/volunteering_4.jpg" alt="V4"></div>
+          <div class="media-frame aspect-square"><img src="media/volunteering_5.jpg" alt="V5"></div>
+        </div>
+      </div>
+
     </section>
   </main>
 
-  <div class="modal-overlay" id="step-modal" role="dialog" aria-modal="true" aria-label="Academic transcript">
+  <!-- МОДАЛЬНОЕ ОКНО -->
+  <div class="modal-overlay" id="step-modal">
     <div class="modal-content">
-      <div class="flex items-center justify-between p-6 border-b border-white/10 bg-white/5">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center">
-            <svg class="w-5 h-5 text-purple-400" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2 2 7l10 5 10-5-10-5zm-7 8v6l7 3 7-3v-6l-7 3-7-3z"></path>
-            </svg>
+      <div class="flex items-center justify-between p-8 border-b border-white/5 bg-white/[0.02]">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center">
+            <svg class="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zm-7 8v6l7 3 7-3v-6l-7 3-7-3z"/></svg>
           </div>
-          <h2 class="text-xl font-bold text-white uppercase tracking-wider">Academic Transcript</h2>
+          <h2 class="text-xl font-black uppercase tracking-widest text-white">Academic Transcript</h2>
         </div>
-        <button type="button" class="p-2 hover:bg-white/10 rounded-full transition-colors text-gray-400 hover:text-white" id="close-step-modal">
-          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-            <path d="m6.4 5 12.6 12.6-1.4 1.4L5 6.4 6.4 5z"></path>
-            <path d="M18.6 5 5 18.6l1.4 1.4L20 6.4 18.6 5z"></path>
-          </svg>
+        <button id="close-step-modal" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+          <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
 
-      <div class="modal-body p-6 md:p-8 space-y-8">
-        <div class="bg-gradient-to-r from-purple-900/20 to-indigo-900/20 border border-purple-500/20 rounded-2xl p-8 text-center">
-          <h1 class="text-2xl md:text-3xl font-serif text-white mb-2">DIPLOMA</h1>
-          <p class="text-gray-400 italic mb-4">Certificate of Professional Education</p>
-          <div class="h-px w-32 bg-purple-500/50 mx-auto mb-4"></div>
-          <p class="text-lg text-white font-semibold">IT STEP ACADEMY</p>
-          <p class="text-sm text-gray-400 max-w-md mx-auto mt-2">
-            Confirmed graduation from Junior Computer Academy with honors in software development and digital design.
+      <div class="modal-body">
+        <!-- Визуальный Диплом -->
+        <div class="relative p-10 mb-12 rounded-3xl border border-purple-500/20 bg-gradient-to-br from-purple-900/10 to-transparent text-center overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-500"></div>
+          <h1 class="text-4xl font-serif text-white mb-3">DIPLOMA</h1>
+          <p class="text-purple-300 italic font-light tracking-wide mb-6">Certificate of Comprehensive Tech Education</p>
+          <div class="w-24 h-px bg-white/20 mx-auto mb-6"></div>
+          <p class="text-xl text-white font-bold mb-2">IT STEP ACADEMY</p>
+          <p class="text-gray-400 text-sm max-w-lg mx-auto leading-relaxed">
+            This certifies that the student has successfully completed the full academic cycle of the Junior Computer Academy with exceptional performance across software engineering and digital creative disciplines.
           </p>
         </div>
 
-        <div class="space-y-4">
-          <div class="flex items-center gap-2 text-gray-400 text-sm uppercase tracking-widest">
-            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-            Grading Scale: 1-12
+        <!-- Таблица оценок -->
+        <div class="space-y-6">
+          <div class="flex items-center justify-between">
+            <h3 class="text-xs font-black uppercase tracking-[0.2em] text-gray-500 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Full Grade List
+            </h3>
+            <span class="text-[10px] text-gray-600 uppercase font-bold">Scale: 1-12</span>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Application Development in Python</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Introduction to computer technologies</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-blue-500/20 text-blue-400">11</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Website Design Using Wix and Canva</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-blue-500/20 text-blue-400">11</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Basic of programming - Scratch</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-blue-500/20 text-blue-400">11</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Game Development - Middle (Unreal Engine)</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Kodu GameLab</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">IT Start</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Digital Architecture - SketchUp</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Development of Augmented Reality Mobile Apps</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Programming Devices on Arduino</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-blue-500/20 text-blue-400">9</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Video Lab</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Digital Art</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Web Design - Junior (HTML &amp; CSS)</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Python Programming - Junior</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Photolab</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Animation and Cartoons</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Website Development with WordPress</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Game Art</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Object-oriented and functional programming in Python</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">3D-Animation</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Game Development - Junior (Construct2)</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Build Arcade Games in Click Fusion</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Robotics Lego</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-blue-500/20 text-blue-400">11</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Visual effects</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Programming the BBC Micro:bit</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-blue-500/20 text-blue-400">11</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Innovative Technologies</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
-            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Fundamentals of Marketing, Startup and Freelance</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-blue-500/20 text-blue-400">11</span></div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="grades-container">
+            <!-- Сюда вставится список через JS для чистоты кода -->
           </div>
         </div>
       </div>
-
-      <div class="p-4 border-t border-white/10 bg-white/5 text-center">
-        <p class="text-xs text-gray-500">Official document verified by IT STEP Academy Academic Board</p>
+      
+      <div class="p-6 border-t border-white/5 bg-white/[0.01] text-center">
+        <p class="text-[10px] text-gray-600 uppercase tracking-widest">Verified Academic Record • IT STEP Academy</p>
       </div>
     </div>
   </div>
 
-  <footer class="py-16 border-t border-white/10">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-2xl font-bold mb-4 tracking-tight">Celebrating learning &amp; <span class="gradient-text">community growth.</span></h2>
-      <p class="text-gray-500 mb-8 max-w-lg mx-auto">Ask about coursework, academic references, and leadership highlights.</p>
+  <footer class="py-20 border-t border-white/10 text-center">
+    <div class="container mx-auto px-6">
+      <h2 class="text-2xl font-bold mb-4">Let's build something <span class="gradient-text">meaningful.</span></h2>
+      <p class="text-gray-500 mb-8 max-w-lg mx-auto">Feel free to reach out for academic collaborations or project inquiries.</p>
     </div>
   </footer>
 
   <script>
-    const openModalButton = document.getElementById("open-step-modal");
-    const closeModalButton = document.getElementById("close-step-modal");
-    const modal = document.getElementById("step-modal");
+    const gradesData = [
+      { s: "Application Development in Python", g: 12 },
+      { s: "Introduction to computer technologies", g: 11 },
+      { s: "Website Design Using Wix and Canva", g: 11 },
+      { s: "Basic of programming - Scratch", g: 11 },
+      { s: "Game Development - Middle (Unreal Engine)", g: 12 },
+      { s: "Kodu GameLab", g: 12 },
+      { s: "IT Start", g: 12 },
+      { s: "Digital Architecture - SketchUp", g: 12 },
+      { s: "Development of Augmented Reality Mobile Apps", g: 12 },
+      { s: "Programming Devices on Arduino", g: 9 },
+      { s: "Video Lab", g: 12 },
+      { s: "Digital Art", g: 12 },
+      { s: "Web Design - Junior (HTML & CSS)", g: 12 },
+      { s: "Python Programming - Junior", g: 12 },
+      { s: "Photolab", g: 12 },
+      { s: "Animation and Cartoons", g: 12 },
+      { s: "Website Development with WordPress", g: 12 },
+      { s: "Game Art", g: 12 },
+      { s: "Object-oriented and functional programming in Python", g: 12 },
+      { s: "3D-Animation", g: 12 },
+      { s: "Game Development - Junior (Construct2)", g: 12 },
+      { s: "Build Arcade Games in Click Fusion", g: 12 },
+      { s: "Robotics Lego", g: 11 },
+      { s: "Visual effects", g: 12 },
+      { s: "Programming the BBC Micro:bit", g: 11 },
+      { s: "Innovative Technologies", g: 12 },
+      { s: "Fundamentals of Marketing, Startup and Freelance", g: 11 }
+    ];
 
-    if (openModalButton && closeModalButton && modal) {
-      const openModal = () => {
-        modal.classList.add("active");
-      };
+    const container = document.getElementById('grades-container');
+    gradesData.forEach(item => {
+      const badgeClass = item.g >= 12 ? 'grade-perfect' : 'grade-good';
+      container.innerHTML += `
+        <div class="flex justify-between items-center p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/10 transition-colors group">
+          <span class="text-sm text-gray-300 group-hover:text-white transition-colors">${item.s}</span>
+          <span class="grade-badge ${badgeClass}">${item.g}</span>
+        </div>
+      `;
+    });
 
-      openModalButton.addEventListener("click", openModal);
-      openModalButton.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          openModal();
-        }
-      });
+    const modal = document.getElementById('step-modal');
+    const openBtn = document.getElementById('open-step-modal');
+    const closeBtn = document.getElementById('close-step-modal');
 
-      closeModalButton.addEventListener("click", () => {
-        modal.classList.remove("active");
-      });
-
-      modal.addEventListener("click", (event) => {
-        if (event.target === modal) {
-          modal.classList.remove("active");
-        }
-      });
+    openBtn.onclick = () => modal.classList.add('active');
+    closeBtn.onclick = () => modal.classList.remove('active');
+    
+    window.onclick = (e) => {
+      if (e.target == modal) modal.classList.remove('active');
     }
   </script>
 </body>

@@ -56,15 +56,16 @@
       display: block;
     }
     .step-card {
-      border-radius: 18px;
-      border: 1px solid rgba(148, 163, 184, 0.2);
-      background: rgba(15, 15, 19, 0.9);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
     }
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(3, 7, 18, 0.8);
+      background: rgba(0, 0, 0, 0.8);
       display: none;
       align-items: center;
       justify-content: center;
@@ -74,18 +75,27 @@
       display: flex;
     }
     .modal-content {
-      max-width: min(90vw, 960px);
+      width: min(95vw, 960px);
       max-height: 90vh;
-      background: #0f0f13;
-      border-radius: 16px;
-      padding: 1rem;
-      border: 1px solid rgba(148, 163, 184, 0.2);
-      position: relative;
+      background: #151518;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
-    .modal-content img {
-      max-width: 100%;
-      max-height: 80vh;
-      border-radius: 12px;
+    .modal-body {
+      overflow-y: auto;
+    }
+    .modal-body::-webkit-scrollbar {
+      width: 6px;
+    }
+    .modal-body::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .modal-body::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
     }
   </style>
 </head>
@@ -189,6 +199,7 @@
         </div>
 
         <div>
+<<<<<<< HEAD
           <h2 class="text-3xl font-bold mb-6">IT STEP Academy</h2>
           <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-6">
             <div class="step-card p-6 space-y-4">
@@ -198,48 +209,25 @@
                   <h3 class="text-xl font-bold">Diploma overview</h3>
                   <p class="text-gray-400 text-sm">Key modules and grades (1–27).</p>
                 </div>
+=======
+          <h2 class="text-3xl font-bold mb-6">IT Academy STEP</h2>
+          <div class="step-card p-6 space-y-6 max-w-xl cursor-pointer hover:bg-white/10 transition-all" id="open-step-modal">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg shadow-emerald-500/20">
+                <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2 2 7l10 5 10-5-10-5zm-7 8v6l7 3 7-3v-6l-7 3-7-3z"></path>
+                </svg>
+>>>>>>> 19383118cd51100e768a4831b542dc8e2124722f
               </div>
-              <div class="overflow-auto max-h-64">
-                <table class="w-full text-left text-sm">
-                  <thead class="text-gray-400">
-                    <tr>
-                      <th class="py-1 pr-2">№</th>
-                      <th class="py-1 pr-2">Subject</th>
-                      <th class="py-1">Grade</th>
-                    </tr>
-                  </thead>
-                  <tbody class="text-gray-200">
-                    <tr><td class="py-1 pr-2">1</td><td class="py-1 pr-2">Application Development in Python</td><td class="py-1">12</td></tr>
-                    <tr><td class="py-1 pr-2">2</td><td class="py-1 pr-2">Introduction to computer technologies</td><td class="py-1">11</td></tr>
-                    <tr><td class="py-1 pr-2">3</td><td class="py-1 pr-2">Website Design Using Wix and Canva</td><td class="py-1">11</td></tr>
-                    <tr><td class="py-1 pr-2">4</td><td class="py-1 pr-2">Basic of programming - Scratch</td><td class="py-1">11</td></tr>
-                    <tr><td class="py-1 pr-2">5</td><td class="py-1 pr-2">Game Development - Middle (Unreal Engine)</td><td class="py-1">12</td></tr>
-                    <tr><td class="py-1 pr-2">6</td><td class="py-1 pr-2">Kodu GameLab</td><td class="py-1">12</td></tr>
-                    <tr><td class="py-1 pr-2">7</td><td class="py-1 pr-2">IT Start</td><td class="py-1">12</td></tr>
-                    <tr><td class="py-1 pr-2">8</td><td class="py-1 pr-2">Digital Architecture - SketchUp</td><td class="py-1">12</td></tr>
-                    <tr><td class="py-1 pr-2">9</td><td class="py-1 pr-2">Development of Augmented Reality Mobile Apps</td><td class="py-1">12</td></tr>
-                    <tr><td class="py-1 pr-2">10</td><td class="py-1 pr-2">Programming Devices on Arduino</td><td class="py-1">9</td></tr>
-                    <tr><td class="py-1 pr-2">11</td><td class="py-1 pr-2">Video Lab</td><td class="py-1">12</td></tr>
-                    <tr><td class="py-1 pr-2">12</td><td class="py-1 pr-2">Digital Art</td><td class="py-1">12</td></tr>
-                    <tr><td class="py-1 pr-2">13</td><td class="py-1 pr-2">Web Design - Junior (HTML &amp; CSS)</td><td class="py-1">12</td></tr>
-                    <tr><td class="py-1 pr-2">14</td><td class="py-1 pr-2">Python Programming - Junior</td><td class="py-1">12</td></tr>
-                    <tr><td class="py-1 pr-2">15</td><td class="py-1 pr-2">Photolab</td><td class="py-1">12</td></tr>
-                    <tr><td class="py-1 pr-2">16</td><td class="py-1 pr-2">Animation and Cartoons</td><td class="py-1">12</td></tr>
-                    <tr><td class="py-1 pr-2">17</td><td class="py-1 pr-2">Website Development with WordPress</td><td class="py-1">12</td></tr>
-                    <tr><td class="py-1 pr-2">18</td><td class="py-1 pr-2">Game Art</td><td class="py-1">12</td></tr>
-                    <tr><td class="py-1 pr-2">19</td><td class="py-1 pr-2">Object-oriented and functional programming in Python</td><td class="py-1">12</td></tr>
-                    <tr><td class="py-1 pr-2">20</td><td class="py-1 pr-2">3D-Animation</td><td class="py-1">12</td></tr>
-                    <tr><td class="py-1 pr-2">21</td><td class="py-1 pr-2">Game Development - Junior (Construct2)</td><td class="py-1">12</td></tr>
-                    <tr><td class="py-1 pr-2">22</td><td class="py-1 pr-2">Build Arcade Games in Click Fusion</td><td class="py-1">12</td></tr>
-                    <tr><td class="py-1 pr-2">23</td><td class="py-1 pr-2">Robotics Lego</td><td class="py-1">11</td></tr>
-                    <tr><td class="py-1 pr-2">24</td><td class="py-1 pr-2">Visual effects</td><td class="py-1">12</td></tr>
-                    <tr><td class="py-1 pr-2">25</td><td class="py-1 pr-2">Programming the BBC Micro:bit</td><td class="py-1">11</td></tr>
-                    <tr><td class="py-1 pr-2">26</td><td class="py-1 pr-2">Innovative Technologies</td><td class="py-1">12</td></tr>
-                    <tr><td class="py-1 pr-2">27</td><td class="py-1 pr-2">Fundamentals of Marketing, Startup and Freelance</td><td class="py-1">11</td></tr>
-                  </tbody>
-                </table>
+              <div>
+                <h3 class="font-bold text-lg">IT STEP Academy</h3>
+                <p class="text-emerald-300 text-sm flex items-center gap-1">
+                  <span class="inline-flex w-4 h-4 rounded-full border border-emerald-300/40 items-center justify-center text-xs">✓</span>
+                  Junior Computer Academy
+                </p>
               </div>
             </div>
+<<<<<<< HEAD
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-start">
               <div class="step-card p-5 space-y-4">
                 <div class="flex items-start justify-between">
@@ -258,6 +246,23 @@
                 </button>
               </div>
               <div class="media-frame"><img src="media/grad_photo_3.jpg" alt="IT STEP Academy graduation photo" /></div>
+=======
+
+            <div class="space-y-3">
+              <div class="flex justify-between items-center text-sm">
+                <span class="text-gray-400">Average Grade</span>
+                <span class="font-mono text-emerald-400 font-bold">11.7/12.0</span>
+              </div>
+              <div class="flex justify-between items-center text-sm">
+                <span class="text-gray-400">Total Subjects</span>
+                <span class="font-mono">27</span>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between text-xs font-medium text-purple-400">
+              VIEW FULL TRANSCRIPT &amp; DIPLOMA
+              <span>›</span>
+>>>>>>> 19383118cd51100e768a4831b542dc8e2124722f
             </div>
           </div>
         </div>
@@ -291,10 +296,74 @@
     </section>
   </main>
 
-  <div class="modal-overlay" id="step-modal" role="dialog" aria-modal="true" aria-label="Diploma scan">
+  <div class="modal-overlay" id="step-modal" role="dialog" aria-modal="true" aria-label="Academic transcript">
     <div class="modal-content">
-      <button type="button" class="glass px-3 py-1 rounded-full text-xs font-semibold hover:bg-white/10 transition absolute top-4 right-4" id="close-step-modal">Close</button>
-      <img src="media/grad_photo_4.png" alt="IT Academy STEP diploma scan" />
+      <div class="flex items-center justify-between p-6 border-b border-white/10 bg-white/5">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center">
+            <svg class="w-5 h-5 text-purple-400" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2 2 7l10 5 10-5-10-5zm-7 8v6l7 3 7-3v-6l-7 3-7-3z"></path>
+            </svg>
+          </div>
+          <h2 class="text-xl font-bold text-white uppercase tracking-wider">Academic Transcript</h2>
+        </div>
+        <button type="button" class="p-2 hover:bg-white/10 rounded-full transition-colors text-gray-400 hover:text-white" id="close-step-modal">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="m6.4 5 12.6 12.6-1.4 1.4L5 6.4 6.4 5z"></path>
+            <path d="M18.6 5 5 18.6l1.4 1.4L20 6.4 18.6 5z"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body p-6 md:p-8 space-y-8">
+        <div class="bg-gradient-to-r from-purple-900/20 to-indigo-900/20 border border-purple-500/20 rounded-2xl p-8 text-center">
+          <h1 class="text-2xl md:text-3xl font-serif text-white mb-2">DIPLOMA</h1>
+          <p class="text-gray-400 italic mb-4">Certificate of Professional Education</p>
+          <div class="h-px w-32 bg-purple-500/50 mx-auto mb-4"></div>
+          <p class="text-lg text-white font-semibold">IT STEP ACADEMY</p>
+          <p class="text-sm text-gray-400 max-w-md mx-auto mt-2">\n            Confirmed graduation from Junior Computer Academy with honors in software development and digital design.\n          </p>
+        </div>
+
+        <div class="space-y-4">
+          <div class="flex items-center gap-2 text-gray-400 text-sm uppercase tracking-widest">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            Grading Scale: 1-12
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Application Development in Python</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Introduction to computer technologies</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-blue-500/20 text-blue-400">11</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Website Design Using Wix and Canva</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-blue-500/20 text-blue-400">11</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Basic of programming - Scratch</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-blue-500/20 text-blue-400">11</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Game Development - Middle (Unreal Engine)</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Kodu GameLab</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">IT Start</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Digital Architecture - SketchUp</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Development of Augmented Reality Mobile Apps</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Programming Devices on Arduino</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-blue-500/20 text-blue-400">9</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Video Lab</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Digital Art</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Web Design - Junior (HTML &amp; CSS)</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Python Programming - Junior</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Photolab</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Animation and Cartoons</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Website Development with WordPress</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Game Art</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Object-oriented and functional programming in Python</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">3D-Animation</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Game Development - Junior (Construct2)</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Build Arcade Games in Click Fusion</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Robotics Lego</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-blue-500/20 text-blue-400">11</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Visual effects</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Programming the BBC Micro:bit</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-blue-500/20 text-blue-400">11</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Innovative Technologies</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-emerald-500/20 text-emerald-400">12</span></div>
+            <div class="flex justify-between items-center p-3 rounded-xl bg-white/5 border border-white/5"><span class="text-sm text-gray-200 truncate pr-4">Fundamentals of Marketing, Startup and Freelance</span><span class="px-3 py-1 rounded-lg text-xs font-bold font-mono bg-blue-500/20 text-blue-400">11</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 border-t border-white/10 bg-white/5 text-center">
+        <p class="text-xs text-gray-500">Official document verified by IT STEP Academy Academic Board</p>
+      </div>
     </div>
   </div>
 

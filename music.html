@@ -60,8 +60,30 @@
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
       background: #111116;
     }
-    .audio-frame audio {
-      width: 100%;
+    .audio-player {
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    }
+    .player-range {
+      accent-color: #a78bfa;
+    }
+    .player-range::-webkit-slider-thumb {
+      appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: #c4b5fd;
+      border: 2px solid #1f1f2b;
+    }
+    .player-range::-moz-range-thumb {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: #c4b5fd;
+      border: 2px solid #1f1f2b;
     }
   </style>
 </head>
@@ -298,28 +320,107 @@
               <h2 class="text-2xl font-bold mb-2">My songs</h2>
               <p class="text-gray-400">Original tracks available to stream directly from this page.</p>
             </div>
-            <div class="grid grid-cols-1 gap-4">
-              <div class="audio-frame p-5 space-y-3">
-                <div class="flex items-center justify-between">
-                  <h3 class="text-lg font-semibold">Feeling</h3>
-                  <button type="button" class="play-button glass px-3 py-1 rounded-full text-xs font-semibold hover:bg-white/10 transition" data-audio="track-feeling">Play</button>
+            <div class="grid grid-cols-1 gap-6">
+              <div class="audio-player p-6 space-y-5" data-audio-player>
+                <audio preload="metadata" data-audio-src="media/music_1.mp3"></audio>
+                <div class="flex items-center gap-4">
+                  <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg shadow-purple-500/20">
+                    <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M9 19V6l12-3v13a3 3 0 1 1-2-2.83V6.47L11 8.53V19a3 3 0 1 1-2-2.83z"></path>
+                    </svg>
+                  </div>
+                  <div class="flex-1 overflow-hidden">
+                    <h3 class="font-bold text-lg truncate">Feeling</h3>
+                    <p class="text-purple-300 text-sm truncate">Original Composition</p>
+                  </div>
                 </div>
-                <audio preload="metadata" id="track-feeling" class="hidden">
-                  <source src="media/music_1.mp3" type="audio/mpeg" />
-                  Your browser does not support the audio element.
-                </audio>
-                <p class="text-xs text-gray-500" data-status="track-feeling">Ready to play</p>
+                <div>
+                  <input type="range" min="0" max="0" value="0" class="player-range w-full h-1.5 bg-white/10 rounded-lg cursor-pointer" data-progress />
+                  <div class="flex justify-between text-xs text-gray-400 mt-2 font-mono">
+                    <span data-current>0:00</span>
+                    <span data-duration>0:00</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-4">
+                    <button type="button" class="text-gray-400 hover:text-white transition-colors" data-skip="-10">
+                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11 18V6l-8.5 6L11 18zm1-6l8.5 6V6L12 12zm-7-9h2v18H5V3z"></path>
+                      </svg>
+                    </button>
+                    <button type="button" class="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center hover:scale-105 active:scale-95 transition-transform" data-play>
+                      <svg class="w-6 h-6 ml-0.5" viewBox="0 0 24 24" fill="currentColor" data-icon-play>
+                        <path d="M8 5v14l11-7z"></path>
+                      </svg>
+                      <svg class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="currentColor" data-icon-pause>
+                        <path d="M6 5h4v14H6zm8 0h4v14h-4z"></path>
+                      </svg>
+                    </button>
+                    <button type="button" class="text-gray-400 hover:text-white transition-colors" data-skip="10">
+                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 18V6l8.5 6L13 18zM12 12 3.5 6v12L12 12zm7-9h-2v18h2V3z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a3.5 3.5 0 0 0-2.5-3.35v6.7a3.5 3.5 0 0 0 2.5-3.35z"></path>
+                      <path d="M14 3.23v2.06a7 7 0 0 1 0 13.42v2.06a9 9 0 0 0 0-17.54z"></path>
+                    </svg>
+                    <input type="range" min="0" max="1" step="0.01" value="0.7" class="player-range w-20 h-1 bg-white/10 rounded-lg cursor-pointer" data-volume />
+                  </div>
+                </div>
               </div>
-              <div class="audio-frame p-5 space-y-3">
-                <div class="flex items-center justify-between">
-                  <h3 class="text-lg font-semibold">You Think You Have Time</h3>
-                  <button type="button" class="play-button glass px-3 py-1 rounded-full text-xs font-semibold hover:bg-white/10 transition" data-audio="track-time">Play</button>
+
+              <div class="audio-player p-6 space-y-5" data-audio-player>
+                <audio preload="metadata" data-audio-src="media/music_2.mp3"></audio>
+                <div class="flex items-center gap-4">
+                  <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg shadow-purple-500/20">
+                    <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M9 19V6l12-3v13a3 3 0 1 1-2-2.83V6.47L11 8.53V19a3 3 0 1 1-2-2.83z"></path>
+                    </svg>
+                  </div>
+                  <div class="flex-1 overflow-hidden">
+                    <h3 class="font-bold text-lg truncate">You Think You Have Time</h3>
+                    <p class="text-purple-300 text-sm truncate">Original Composition</p>
+                  </div>
                 </div>
-                <audio preload="metadata" id="track-time" class="hidden">
-                  <source src="media/music_2.mp3" type="audio/mpeg" />
-                  Your browser does not support the audio element.
-                </audio>
-                <p class="text-xs text-gray-500" data-status="track-time">Ready to play</p>
+                <div>
+                  <input type="range" min="0" max="0" value="0" class="player-range w-full h-1.5 bg-white/10 rounded-lg cursor-pointer" data-progress />
+                  <div class="flex justify-between text-xs text-gray-400 mt-2 font-mono">
+                    <span data-current>0:00</span>
+                    <span data-duration>0:00</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-4">
+                    <button type="button" class="text-gray-400 hover:text-white transition-colors" data-skip="-10">
+                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11 18V6l-8.5 6L11 18zm1-6l8.5 6V6L12 12zm-7-9h2v18H5V3z"></path>
+                      </svg>
+                    </button>
+                    <button type="button" class="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center hover:scale-105 active:scale-95 transition-transform" data-play>
+                      <svg class="w-6 h-6 ml-0.5" viewBox="0 0 24 24" fill="currentColor" data-icon-play>
+                        <path d="M8 5v14l11-7z"></path>
+                      </svg>
+                      <svg class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="currentColor" data-icon-pause>
+                        <path d="M6 5h4v14H6zm8 0h4v14h-4z"></path>
+                      </svg>
+                    </button>
+                    <button type="button" class="text-gray-400 hover:text-white transition-colors" data-skip="10">
+                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 18V6l8.5 6L13 18zM12 12 3.5 6v12L12 12zm7-9h-2v18h2V3z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a3.5 3.5 0 0 0-2.5-3.35v6.7a3.5 3.5 0 0 0 2.5-3.35z"></path>
+                      <path d="M14 3.23v2.06a7 7 0 0 1 0 13.42v2.06a9 9 0 0 0 0-17.54z"></path>
+                    </svg>
+                    <input type="range" min="0" max="1" step="0.01" value="0.7" class="player-range w-20 h-1 bg-white/10 rounded-lg cursor-pointer" data-volume />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -360,39 +461,86 @@
     </div>
   </footer>
   <script>
-    const playButtons = document.querySelectorAll('.play-button');
-    const audios = new Map();
+    const players = Array.from(document.querySelectorAll('[data-audio-player]'));
+    const playerState = new Map();
 
-    playButtons.forEach((button) => {
-      const audioId = button.dataset.audio;
-      const audio = document.getElementById(audioId);
-      const status = document.querySelector(`[data-status="${audioId}"]`);
-      audios.set(audioId, { audio, button, status });
+    const formatTime = (time) => {
+      if (Number.isNaN(time)) return '0:00';
+      const minutes = Math.floor(time / 60);
+      const seconds = Math.floor(time % 60);
+      return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    };
 
-      button.addEventListener('click', () => {
-        audios.forEach(({ audio: otherAudio, button: otherButton, status: otherStatus }, key) => {
-          if (key !== audioId) {
-            otherAudio.pause();
-            otherAudio.currentTime = 0;
-            otherButton.textContent = 'Play';
-            otherStatus.textContent = 'Ready to play';
-          }
-        });
-
-        if (audio.paused) {
-          audio.play();
-          button.textContent = 'Pause';
-          status.textContent = 'Now playing';
-        } else {
+    const stopOtherPlayers = (currentAudio) => {
+      playerState.forEach(({ audio, playIcon, pauseIcon, progress }) => {
+        if (audio !== currentAudio) {
           audio.pause();
-          button.textContent = 'Play';
-          status.textContent = 'Paused';
+          audio.currentTime = 0;
+          playIcon.classList.remove('hidden');
+          pauseIcon.classList.add('hidden');
+          progress.value = 0;
         }
+      });
+    };
+
+    players.forEach((player) => {
+      const audio = player.querySelector('audio');
+      const src = audio.dataset.audioSrc;
+      const playButton = player.querySelector('[data-play]');
+      const playIcon = player.querySelector('[data-icon-play]');
+      const pauseIcon = player.querySelector('[data-icon-pause]');
+      const progress = player.querySelector('[data-progress]');
+      const currentTime = player.querySelector('[data-current]');
+      const duration = player.querySelector('[data-duration]');
+      const volume = player.querySelector('[data-volume]');
+      const skipButtons = player.querySelectorAll('[data-skip]');
+
+      audio.src = src;
+      audio.volume = Number(volume.value);
+      playerState.set(player, { audio, playIcon, pauseIcon, progress });
+
+      audio.addEventListener('loadedmetadata', () => {
+        progress.max = audio.duration || 0;
+        duration.textContent = formatTime(audio.duration);
+      });
+
+      audio.addEventListener('timeupdate', () => {
+        progress.value = audio.currentTime;
+        currentTime.textContent = formatTime(audio.currentTime);
       });
 
       audio.addEventListener('ended', () => {
-        button.textContent = 'Play';
-        status.textContent = 'Finished';
+        playIcon.classList.remove('hidden');
+        pauseIcon.classList.add('hidden');
+        progress.value = 0;
+      });
+
+      playButton.addEventListener('click', () => {
+        if (audio.paused) {
+          stopOtherPlayers(audio);
+          audio.play();
+          playIcon.classList.add('hidden');
+          pauseIcon.classList.remove('hidden');
+        } else {
+          audio.pause();
+          playIcon.classList.remove('hidden');
+          pauseIcon.classList.add('hidden');
+        }
+      });
+
+      progress.addEventListener('input', (event) => {
+        audio.currentTime = Number(event.target.value);
+      });
+
+      volume.addEventListener('input', (event) => {
+        audio.volume = Number(event.target.value);
+      });
+
+      skipButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const delta = Number(button.dataset.skip);
+          audio.currentTime = Math.min(Math.max(audio.currentTime + delta, 0), audio.duration || 0);
+        });
       });
     });
   </script>

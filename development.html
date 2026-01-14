@@ -43,17 +43,27 @@
       -webkit-text-fill-color: transparent;
     }
     .media-frame {
-      border-radius: 16px;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
       background: #0f0f13;
       overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.4s ease;
+    }
+    .media-frame:hover {
+      transform: scale(1.02);
     }
     .media-frame img,
     .media-frame video {
       width: 100%;
       height: 100%;
-      border-radius: 16px;
+      object-fit: cover;
       display: block;
+    }
+    .venture-card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+      border-radius: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
   </style>
 </head>
@@ -62,10 +72,10 @@
     <div class="container mx-auto px-6 py-4">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center font-bold text-xl">S</div>
+          <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center font-bold text-xl shadow-lg shadow-purple-500/20">S</div>
           <div>
             <p class="text-[10px] uppercase tracking-[0.2em] text-purple-400 font-bold leading-none mb-1">Portfolio</p>
-            <h1 class="text-lg font-extrabold tracking-tight">DEVELOPMENT</h1>
+            <h1 class="text-lg font-extrabold tracking-tight uppercase">Development</h1>
           </div>
         </div>
         <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-gray-400">
@@ -73,7 +83,7 @@
           <a href="travel.html" class="nav-link hover:text-white">Travel</a>
           <a href="music.html" class="nav-link hover:text-white">Music</a>
           <a href="school.html" class="nav-link hover:text-white">School</a>
-                    <a href="development.html" class="nav-link active text-white">Development</a>
+          <a href="development.html" class="nav-link active text-white">Development</a>
           <a href="research.html" class="nav-link hover:text-white">Research</a>
           <a href="other-projects.html" class="nav-link hover:text-white">Other Projects</a>
         </nav>
@@ -81,19 +91,23 @@
     </div>
   </header>
 
+
   <main>
-    <section class="relative pt-20 pb-16 overflow-hidden">
+    <section class="relative pt-24 pb-16 overflow-hidden">
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-6xl pointer-events-none">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-600/10 rounded-full blur-[120px]"></div>
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px]"></div>
       </div>
+
       <div class="container mx-auto px-6 relative text-center">
-        <span class="inline-block px-4 py-1 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-xs font-bold uppercase tracking-widest mb-6">Engineering</span>
-        <h2 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">Building meaningful <span class="gradient-text">digital experiences.</span></h2>
-        <p class="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl leading-relaxed">
-          I design and build digital experiences with a focus on clarity, accessibility,
-          and long-term maintainability. I love collaborating with designers and researchers
-          to bring prototypes to life.
+        <span class="inline-block px-4 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6">
+          Innovation & Code
+        </span>
+        <h2 class="text-6xl md:text-8xl font-black mb-6 tracking-tighter">
+          CRAFTING <span class="gradient-text">DIMENSIONS.</span>
+        </h2>
+        <p class="max-w-xl mx-auto text-gray-400 text-lg md:text-xl leading-relaxed font-light">
+          Building the future through digital engineering and creative vision.
         </p>
       </div>
     </section>
@@ -126,7 +140,6 @@
           </div>
           <p class="text-gray-400">Educational mobile game focused on number skills and logic challenges.</p>
           <div class="flex flex-wrap gap-3 mt-4">
-            <a href="https://play.google.com/store/apps/details?id=com.SAM.LegendofNumbers" target="_blank" rel="noopener" class="glass px-4 py-2 rounded-full text-sm font-semibold hover:bg-white/10 transition">Google Play</a>
             <a href="https://play.google.com/store/apps/details?id=com.SAM.LegendofNumbers" target="_blank" rel="noopener">
               <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="h-14" />
             </a>
@@ -170,26 +183,25 @@
           <a href="https://github.com/SamInUkraine/digit-recognizer" target="_blank" rel="noopener" class="glass px-4 py-2 rounded-full text-sm font-semibold hover:bg-white/10 transition w-fit">View on GitHub</a>
         </div>
 
-        <div class="space-y-6">
-          <div>
-            <h2 class="text-3xl font-bold mb-2">Website</h2>
-            <p class="text-gray-400">Community website build highlighting local programs and updates.</p>
-          </div>
-          <a href="https://sites.google.com/site/krivoyrogktg/" target="_blank" rel="noopener" class="glass px-4 py-2 rounded-full text-sm font-semibold hover:bg-white/10 transition w-fit">Visit the website</a>
-          <div class="glass p-6 rounded-2xl">
-            <h3 class="text-lg font-semibold mb-2">Delivery style</h3>
-            <p class="text-gray-400">Rapid iteration, clear documentation, and collaborative handoffs.</p>
-          </div>
+    <!-- TECH STACK -->
+    <section class="py-24">
+      <div class="container mx-auto px-6 text-center">
+        <h3 class="text-xs font-black uppercase tracking-[0.5em] text-gray-600 mb-12">Tools of the Trade</h3>
+        <div class="flex flex-wrap justify-center gap-12 opacity-40 hover:opacity-100 transition-opacity">
+          <span class="text-2xl font-black">REACT.JS</span>
+          <span class="text-2xl font-black">PYTHON</span>
+          <span class="text-2xl font-black">C#</span>
+          <span class="text-2xl font-black">JAVA</span>
+          <span class="text-2xl font-black">HTML/CSS</span>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="py-16 border-t border-white/10">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-2xl font-bold mb-4 tracking-tight">Open to <span class="gradient-text">product collaborations.</span></h2>
-      <p class="text-gray-500 mb-8 max-w-lg mx-auto">Let’s build something impactful together.</p>
-    </div>
+
+ 
+  <footer class="py-20 border-t border-white/5 text-center">
+    <p class="text-[10px] text-gray-600 uppercase tracking-[0.4em] font-bold">&copy; 2026 SAM DEV & VENTURES</p>
   </footer>
 </body>
 </html>

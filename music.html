@@ -300,18 +300,26 @@
             </div>
             <div class="grid grid-cols-1 gap-4">
               <div class="audio-frame p-5 space-y-3">
-                <h3 class="text-lg font-semibold">Feeling</h3>
-                <audio controls preload="metadata">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-lg font-semibold">Feeling</h3>
+                  <button type="button" class="play-button glass px-3 py-1 rounded-full text-xs font-semibold hover:bg-white/10 transition" data-audio="track-feeling">Play</button>
+                </div>
+                <audio preload="metadata" id="track-feeling" class="hidden">
                   <source src="media/music_1.mp3" type="audio/mpeg" />
                   Your browser does not support the audio element.
                 </audio>
+                <p class="text-xs text-gray-500" data-status="track-feeling">Ready to play</p>
               </div>
               <div class="audio-frame p-5 space-y-3">
-                <h3 class="text-lg font-semibold">You Think You Have Time</h3>
-                <audio controls preload="metadata">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-lg font-semibold">You Think You Have Time</h3>
+                  <button type="button" class="play-button glass px-3 py-1 rounded-full text-xs font-semibold hover:bg-white/10 transition" data-audio="track-time">Play</button>
+                </div>
+                <audio preload="metadata" id="track-time" class="hidden">
                   <source src="media/music_2.mp3" type="audio/mpeg" />
                   Your browser does not support the audio element.
                 </audio>
+                <p class="text-xs text-gray-500" data-status="track-time">Ready to play</p>
               </div>
             </div>
           </div>
@@ -351,5 +359,42 @@
       <p class="text-gray-500 mb-8 max-w-lg mx-auto">Collaborate on music, sound design, or live performance experiences.</p>
     </div>
   </footer>
+  <script>
+    const playButtons = document.querySelectorAll('.play-button');
+    const audios = new Map();
+
+    playButtons.forEach((button) => {
+      const audioId = button.dataset.audio;
+      const audio = document.getElementById(audioId);
+      const status = document.querySelector(`[data-status="${audioId}"]`);
+      audios.set(audioId, { audio, button, status });
+
+      button.addEventListener('click', () => {
+        audios.forEach(({ audio: otherAudio, button: otherButton, status: otherStatus }, key) => {
+          if (key !== audioId) {
+            otherAudio.pause();
+            otherAudio.currentTime = 0;
+            otherButton.textContent = 'Play';
+            otherStatus.textContent = 'Ready to play';
+          }
+        });
+
+        if (audio.paused) {
+          audio.play();
+          button.textContent = 'Pause';
+          status.textContent = 'Now playing';
+        } else {
+          audio.pause();
+          button.textContent = 'Play';
+          status.textContent = 'Paused';
+        }
+      });
+
+      audio.addEventListener('ended', () => {
+        button.textContent = 'Play';
+        status.textContent = 'Finished';
+      });
+    });
+  </script>
 </body>
 </html>

@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Мое Портфолио | Главная</title>
+  <title>Personal Portfolio | Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap");
 
     :root {
       --primary-bg: #0a0a0c;
-      --accent-color: #6366f1;
     }
 
     body {
@@ -40,7 +39,7 @@
       position: relative;
       width: 320px;
       height: 450px;
-      transition: transform 0.1s ease-out;
+      transition: transform 0.15s ease-out;
       transform-style: preserve-3d;
       cursor: pointer;
     }
@@ -48,10 +47,10 @@
     .photo-wrapper {
       width: 100%;
       height: 100%;
-      border-radius: 24px;
+      border-radius: 20px;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.8);
       position: relative;
     }
 
@@ -59,66 +58,64 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: filter 0.5s ease, transform 0.5s ease;
     }
-
-    body.mode-work .main-photo { filter: grayscale(1) contrast(1.2); }
-    body.mode-hobby .main-photo { filter: sepia(0.5) hue-rotate(280deg); }
-    body.mode-travel .main-photo { filter: saturate(2) brightness(1.1); }
 
     .floating-tag {
       position: absolute;
-      padding: 12px 20px;
+      padding: 10px 22px;
       background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 50px;
-      font-size: 0.9rem;
-      font-weight: 500;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-transform: uppercase;
       white-space: nowrap;
       transition: all 0.3s ease;
       z-index: 10;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
     .floating-tag:hover {
-      background: var(--accent-color);
-      transform: scale(1.1) translateZ(50px) !important;
-      border-color: transparent;
+      background: white;
+      color: black;
+      transform: scale(1.1);
+      border-color: white;
     }
 
     .info-panel {
       position: absolute;
-      bottom: -80px;
+      bottom: -90px;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
-      width: 100%;
+      width: 120%;
       pointer-events: none;
-      opacity: 0.8;
     }
 
     .info-title {
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: 700;
       margin-bottom: 4px;
-      letter-spacing: -1px;
+      letter-spacing: -0.5px;
     }
 
     .info-subtitle {
-      color: #94a3b8;
+      color: #64748b;
       font-weight: 300;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
     }
 
     .hint {
       position: fixed;
-      bottom: 30px;
+      bottom: 40px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 0.8rem;
-      color: #4b5563;
+      font-size: 0.7rem;
+      color: #475569;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
     }
   </style>
 </head>
@@ -128,50 +125,36 @@
   <div class="relative">
     <div class="photo-card" id="card">
       <div class="photo-wrapper">
-        <img src="media/me.jpg" alt="Портрет" class="main-photo" id="main-img" />
+        <img src="media/me.jpg" alt="Portrait" class="main-photo" />
       </div>
 
       <div class="info-panel">
         <h1 class="info-title">Sam</h1>
-        <p class="info-subtitle">Творец • Путешественник • Разработчик</p>
+        <p class="info-subtitle">Creator • Explorer • Developer</p>
       </div>
     </div>
 
-    <a class="floating-tag cursor-pointer" style="top: 10%; left: -140px;" data-mode="mode-work" href="development.html">💼 Профессиональный путь</a>
-    <a class="floating-tag cursor-pointer" style="top: 40%; right: -150px;" data-mode="mode-hobby" href="music.html">🎨 Творчество и Хобби</a>
-    <a class="floating-tag cursor-pointer" style="bottom: 20%; left: -120px;" data-mode="mode-travel" href="travel.html">🌍 Мои Путешествия</a>
-    <a class="floating-tag cursor-pointer" style="bottom: 5%; right: -100px;" data-mode="mode-life" href="school.html">☕ Учёба и рост</a>
+    <a class="floating-tag cursor-pointer" style="top: 0%; left: -160px;" href="travel.html">Travel</a>
+    <a class="floating-tag cursor-pointer" style="top: 35%; right: -160px;" href="music.html">Music</a>
+    <a class="floating-tag cursor-pointer" style="top: 70%; left: -140px;" href="school.html">School</a>
+    <a class="floating-tag cursor-pointer" style="bottom: 10%; right: -180px;" href="development.html">Development</a>
+    <a class="floating-tag cursor-pointer" style="top: -60px; right: 20px;" href="research.html">Research</a>
   </div>
 
-  <div class="hint">Наведите на элементы, чтобы узнать больше</div>
+  <div class="hint">Interact with the core</div>
 
   <script>
     const card = document.getElementById("card");
-    const body = document.body;
-    const tags = document.querySelectorAll(".floating-tag");
 
     document.addEventListener("mousemove", (e) => {
-      const x = e.clientX;
-      const y = e.clientY;
-
+      const { clientX, clientY } = e;
       const centerX = window.innerWidth / 2;
       const centerY = window.innerHeight / 2;
 
-      const rotateX = (centerY - y) / 20;
-      const rotateY = (x - centerX) / 20;
+      const rotateX = (centerY - clientY) / 25;
+      const rotateY = (clientX - centerX) / 25;
 
       card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
-
-    tags.forEach((tag) => {
-      tag.addEventListener("mouseenter", () => {
-        const mode = tag.getAttribute("data-mode");
-        body.className = mode;
-      });
-
-      tag.addEventListener("mouseleave", () => {
-        body.className = "";
-      });
     });
 
     document.addEventListener("mouseleave", () => {

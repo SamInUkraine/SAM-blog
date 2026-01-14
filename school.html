@@ -55,6 +55,38 @@
       border-radius: 16px;
       display: block;
     }
+    .step-card {
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: rgba(15, 15, 19, 0.9);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    }
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 7, 18, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-content {
+      max-width: min(90vw, 960px);
+      max-height: 90vh;
+      background: #0f0f13;
+      border-radius: 16px;
+      padding: 1rem;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      position: relative;
+    }
+    .modal-content img {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: 12px;
+    }
   </style>
 </head>
 <body class="antialiased selection:bg-purple-500/30">
@@ -73,7 +105,7 @@
           <a href="travel.html" class="nav-link hover:text-white">Travel</a>
           <a href="music.html" class="nav-link hover:text-white">Music</a>
           <a href="school.html" class="nav-link active text-white">School</a>
-                    <a href="development.html" class="nav-link hover:text-white">Development</a>
+          <a href="development.html" class="nav-link hover:text-white">Development</a>
           <a href="research.html" class="nav-link hover:text-white">Research</a>
           <a href="church.html" class="nav-link hover:text-white">Church</a>
           <a href="other-projects.html" class="nav-link hover:text-white">Other Projects</a>
@@ -158,9 +190,62 @@
 
         <div>
           <h2 class="text-3xl font-bold mb-6">IT Academy STEP</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div class="media-frame"><img src="media/grad_photo_3.jpg" alt="IT Academy STEP graduation photo 1" /></div>
-            <div class="media-frame"><img src="media/grad_photo_4.png" alt="IT Academy STEP graduation photo 2" /></div>
+          <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-6">
+            <div class="step-card p-6 space-y-4">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center text-xl font-bold">STEP</div>
+                <div>
+                  <h3 class="text-xl font-bold">Diploma overview</h3>
+                  <p class="text-gray-400 text-sm">Key modules and grades (1–27).</p>
+                </div>
+              </div>
+              <div class="overflow-auto max-h-64">
+                <table class="w-full text-left text-sm">
+                  <thead class="text-gray-400">
+                    <tr>
+                      <th class="py-1 pr-2">№</th>
+                      <th class="py-1 pr-2">Subject</th>
+                      <th class="py-1">Grade</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-gray-200">
+                    <tr><td class="py-1 pr-2">1</td><td class="py-1 pr-2">Application Development in Python</td><td class="py-1">12</td></tr>
+                    <tr><td class="py-1 pr-2">2</td><td class="py-1 pr-2">Introduction to computer technologies</td><td class="py-1">11</td></tr>
+                    <tr><td class="py-1 pr-2">3</td><td class="py-1 pr-2">Website Design Using Wix and Canva</td><td class="py-1">11</td></tr>
+                    <tr><td class="py-1 pr-2">4</td><td class="py-1 pr-2">Basic of programming - Scratch</td><td class="py-1">11</td></tr>
+                    <tr><td class="py-1 pr-2">5</td><td class="py-1 pr-2">Game Development - Middle (Unreal Engine)</td><td class="py-1">12</td></tr>
+                    <tr><td class="py-1 pr-2">6</td><td class="py-1 pr-2">Kodu GameLab</td><td class="py-1">12</td></tr>
+                    <tr><td class="py-1 pr-2">7</td><td class="py-1 pr-2">IT Start</td><td class="py-1">12</td></tr>
+                    <tr><td class="py-1 pr-2">8</td><td class="py-1 pr-2">Digital Architecture - SketchUp</td><td class="py-1">12</td></tr>
+                    <tr><td class="py-1 pr-2">9</td><td class="py-1 pr-2">Development of Augmented Reality Mobile Apps</td><td class="py-1">12</td></tr>
+                    <tr><td class="py-1 pr-2">10</td><td class="py-1 pr-2">Programming Devices on Arduino</td><td class="py-1">9</td></tr>
+                    <tr><td class="py-1 pr-2">11</td><td class="py-1 pr-2">Video Lab</td><td class="py-1">12</td></tr>
+                    <tr><td class="py-1 pr-2">12</td><td class="py-1 pr-2">Digital Art</td><td class="py-1">12</td></tr>
+                    <tr><td class="py-1 pr-2">13</td><td class="py-1 pr-2">Web Design - Junior (HTML &amp; CSS)</td><td class="py-1">12</td></tr>
+                    <tr><td class="py-1 pr-2">14</td><td class="py-1 pr-2">Python Programming - Junior</td><td class="py-1">12</td></tr>
+                    <tr><td class="py-1 pr-2">15</td><td class="py-1 pr-2">Photolab</td><td class="py-1">12</td></tr>
+                    <tr><td class="py-1 pr-2">16</td><td class="py-1 pr-2">Animation and Cartoons</td><td class="py-1">12</td></tr>
+                    <tr><td class="py-1 pr-2">17</td><td class="py-1 pr-2">Website Development with WordPress</td><td class="py-1">12</td></tr>
+                    <tr><td class="py-1 pr-2">18</td><td class="py-1 pr-2">Game Art</td><td class="py-1">12</td></tr>
+                    <tr><td class="py-1 pr-2">19</td><td class="py-1 pr-2">Object-oriented and functional programming in Python</td><td class="py-1">12</td></tr>
+                    <tr><td class="py-1 pr-2">20</td><td class="py-1 pr-2">3D-Animation</td><td class="py-1">12</td></tr>
+                    <tr><td class="py-1 pr-2">21</td><td class="py-1 pr-2">Game Development - Junior (Construct2)</td><td class="py-1">12</td></tr>
+                    <tr><td class="py-1 pr-2">22</td><td class="py-1 pr-2">Build Arcade Games in Click Fusion</td><td class="py-1">12</td></tr>
+                    <tr><td class="py-1 pr-2">23</td><td class="py-1 pr-2">Robotics Lego</td><td class="py-1">11</td></tr>
+                    <tr><td class="py-1 pr-2">24</td><td class="py-1 pr-2">Visual effects</td><td class="py-1">12</td></tr>
+                    <tr><td class="py-1 pr-2">25</td><td class="py-1 pr-2">Programming the BBC Micro:bit</td><td class="py-1">11</td></tr>
+                    <tr><td class="py-1 pr-2">26</td><td class="py-1 pr-2">Innovative Technologies</td><td class="py-1">12</td></tr>
+                    <tr><td class="py-1 pr-2">27</td><td class="py-1 pr-2">Fundamentals of Marketing, Startup and Freelance</td><td class="py-1">11</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <button type="button" class="glass px-4 py-2 rounded-full text-sm font-semibold hover:bg-white/10 transition w-fit" id="open-step-modal">
+                View diploma scan
+              </button>
+            </div>
+            <div class="space-y-4">
+              <div class="media-frame"><img src="media/grad_photo_4.png" alt="IT Academy STEP graduation photo" /></div>
+            </div>
           </div>
         </div>
 
@@ -193,11 +278,40 @@
     </section>
   </main>
 
+  <div class="modal-overlay" id="step-modal" role="dialog" aria-modal="true" aria-label="Diploma scan">
+    <div class="modal-content">
+      <button type="button" class="glass px-3 py-1 rounded-full text-xs font-semibold hover:bg-white/10 transition absolute top-4 right-4" id="close-step-modal">Close</button>
+      <img src="media/grad_photo_3.jpg" alt="IT Academy STEP diploma scan" />
+    </div>
+  </div>
+
   <footer class="py-16 border-t border-white/10">
     <div class="container mx-auto px-6 text-center">
       <h2 class="text-2xl font-bold mb-4 tracking-tight">Celebrating learning &amp; <span class="gradient-text">community growth.</span></h2>
       <p class="text-gray-500 mb-8 max-w-lg mx-auto">Ask about coursework, academic references, and leadership highlights.</p>
     </div>
   </footer>
+
+  <script>
+    const openModalButton = document.getElementById("open-step-modal");
+    const closeModalButton = document.getElementById("close-step-modal");
+    const modal = document.getElementById("step-modal");
+
+    if (openModalButton && closeModalButton && modal) {
+      openModalButton.addEventListener("click", () => {
+        modal.classList.add("active");
+      });
+
+      closeModalButton.addEventListener("click", () => {
+        modal.classList.remove("active");
+      });
+
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          modal.classList.remove("active");
+        }
+      });
+    }
+  </script>
 </body>
 </html>

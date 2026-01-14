@@ -57,7 +57,6 @@
       display: block;
     }
     
-    /* Улучшенная карточка диплома */
     .step-card {
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
       border-radius: 24px;
@@ -72,7 +71,6 @@
       border-color: rgba(139, 92, 246, 0.4);
     }
 
-    /* Модальное окно */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -168,7 +166,6 @@
       </div>
     </section>
 
-    <!-- Иерархия карточек обучения -->
     <section class="py-12">
       <div class="container mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -200,10 +197,9 @@
           <div class="hidden md:block h-px flex-1 bg-white/10 mx-8 mb-4"></div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <!-- Карточка-превью -->
           <div id="open-step-modal" class="step-card p-8 group cursor-pointer relative overflow-hidden">
-            <!-- Фоновая иконка -->
             <div class="absolute -top-4 -right-4 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity">
               <svg class="w-48 h-48 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zm-7 8v6l7 3 7-3v-6l-7 3-7-3z"/></svg>
             </div>
@@ -241,14 +237,30 @@
             </div>
           </div>
 
-          <!-- Сетка фото (уменьшена для баланса) -->
-          <div class="grid grid-cols-2 gap-4">
-            <div class="media-frame h-full"><img src="media/grad_photo_3.jpg" alt="Graduation" /></div>
-            <div class="grid grid-rows-2 gap-4">
-               <div class="media-frame"><img src="media/grad_photo_1.jpg" alt="Portrait 1" /></div>
-               <div class="media-frame"><img src="media/grad_photo_2.jpg" alt="Portrait 2" /></div>
-            </div>
+          <!-- Фото IT STEP -->
+          <div class="media-frame h-full min-h-[400px]">
+            <img src="media/grad_photo_3.jpg" alt="IT Academy Graduation" class="object-cover h-full" />
           </div>
+        </div>
+      </div>
+
+      <!-- NEW SECTION: MUSIC GRADUATION -->
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-end justify-between mb-10 gap-4">
+          <div>
+            <h2 class="text-3xl font-bold mb-2">Music School Graduation</h2>
+            <p class="text-gray-500">Celebrating the completion of professional musical education.</p>
+          </div>
+          <div class="hidden md:block h-px flex-1 bg-white/10 mx-8 mb-4"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+           <div class="media-frame aspect-[4/3]">
+             <img src="media/grad_photo_1.jpg" alt="Music School Portrait 1" />
+           </div>
+           <div class="media-frame aspect-[4/3]">
+             <img src="media/grad_photo_2.jpg" alt="Music School Portrait 2" />
+           </div>
         </div>
       </div>
 
@@ -300,7 +312,6 @@
       </div>
 
       <div class="modal-body">
-        <!-- Визуальный Диплом -->
         <div class="relative p-10 mb-12 rounded-3xl border border-purple-500/20 bg-gradient-to-br from-purple-900/10 to-transparent text-center overflow-hidden">
           <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-indigo-500 to-purple-500"></div>
           <h1 class="text-4xl font-serif text-white mb-3">DIPLOMA</h1>
@@ -312,7 +323,6 @@
           </p>
         </div>
 
-        <!-- Таблица оценок -->
         <div class="space-y-6">
           <div class="flex items-center justify-between">
             <h3 class="text-xs font-black uppercase tracking-[0.2em] text-gray-500 flex items-center gap-2">
@@ -321,9 +331,7 @@
             <span class="text-[10px] text-gray-600 uppercase font-bold">Scale: 1-12</span>
           </div>
           
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="grades-container">
-            <!-- Сюда вставится список через JS для чистоты кода -->
-          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3" id="grades-container"></div>
         </div>
       </div>
       

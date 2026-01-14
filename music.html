@@ -47,6 +47,7 @@
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
       background: #0f0f13;
       overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
     .media-frame img,
     .media-frame video {
@@ -54,36 +55,17 @@
       height: 100%;
       border-radius: 16px;
       display: block;
-    }
-    .audio-frame {
-      border-radius: 16px;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-      background: #111116;
+      object-fit: cover;
     }
     .audio-player {
-      border-radius: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
     }
     .player-range {
       accent-color: #a78bfa;
-    }
-    .player-range::-webkit-slider-thumb {
-      appearance: none;
-      width: 14px;
-      height: 14px;
-      border-radius: 999px;
-      background: #c4b5fd;
-      border: 2px solid #1f1f2b;
-    }
-    .player-range::-moz-range-thumb {
-      width: 14px;
-      height: 14px;
-      border-radius: 999px;
-      background: #c4b5fd;
-      border: 2px solid #1f1f2b;
     }
   </style>
 </head>
@@ -92,7 +74,7 @@
     <div class="container mx-auto px-6 py-4">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center font-bold text-xl">S</div>
+          <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center font-bold text-xl shadow-lg shadow-purple-500/20">S</div>
           <div>
             <p class="text-[10px] uppercase tracking-[0.2em] text-purple-400 font-bold leading-none mb-1">Portfolio</p>
             <h1 class="text-lg font-extrabold tracking-tight">SAM MUSIC</h1>
@@ -103,7 +85,7 @@
           <a href="travel.html" class="nav-link hover:text-white">Travel</a>
           <a href="music.html" class="nav-link active text-white">Music</a>
           <a href="school.html" class="nav-link hover:text-white">School</a>
-                    <a href="development.html" class="nav-link hover:text-white">Development</a>
+          <a href="development.html" class="nav-link hover:text-white">Development</a>
           <a href="research.html" class="nav-link hover:text-white">Research</a>
           <a href="other-projects.html" class="nav-link hover:text-white">Other Projects</a>
         </nav>
@@ -112,340 +94,185 @@
   </header>
 
   <main>
-    <section class="relative pt-20 pb-16 overflow-hidden">
+    <section class="relative pt-24 pb-16 overflow-hidden">
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-6xl pointer-events-none">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-600/10 rounded-full blur-[120px]"></div>
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-600/5 rounded-full blur-[120px]"></div>
       </div>
 
       <div class="container mx-auto px-6 relative text-center">
-        <span class="inline-block px-4 py-1 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-xs font-bold uppercase tracking-widest mb-6">
-          Creative Expression
-        </span>
-        <h2 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
-          Soundtrack of my <span class="gradient-text">creative life.</span>
+        <h2 class="text-6xl md:text-8xl font-black mb-6 tracking-tighter">
+          SOUNDS OF <span class="gradient-text">SAM.</span>
         </h2>
-        <p class="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl leading-relaxed">
-          Composer, performer, and collaborator. I build experiences that blend
-          audio with storytelling—from intimate sessions to live showcases.
+        <p class="max-w-xl mx-auto text-gray-400 text-lg md:text-xl leading-relaxed font-light">
+          Composer and performer. Exploring the intersection of cinematic soundscapes and live musical expression.
         </p>
       </div>
     </section>
 
-    <section class="py-12">
+    <section class="py-16 bg-white/[0.01]">
       <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="glass p-8 rounded-2xl hover:bg-white/5 transition-colors group">
-            <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-3">Performance</h3>
-            <p class="text-gray-400 leading-relaxed">Live sets at campus events, community gatherings, and curated showcases.</p>
-          </div>
-          <div class="glass p-8 rounded-2xl hover:bg-white/5 transition-colors group">
-            <div class="w-12 h-12 bg-pink-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <svg class="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-3">Production</h3>
-            <p class="text-gray-400 leading-relaxed">Home studio sessions focused on cinematic textures and ambient storytelling.</p>
-          </div>
-          <div class="glass p-8 rounded-2xl hover:bg-white/5 transition-colors group">
-            <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-              <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold mb-3">Collaboration</h3>
-            <p class="text-gray-400 leading-relaxed">Worked with vocalists, poets, and filmmakers to score multimedia pieces.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-20 bg-white/[0.02]">
-      <div class="container mx-auto px-6">
-        <div class="mb-12">
-          <h2 class="text-3xl font-bold mb-2">Featured Performances</h2>
-          <p class="text-gray-400">Recent live recordings and featured showcases on stage.</p>
+        <div class="mb-12 border-l-2 border-purple-500 pl-6">
+          <h2 class="text-3xl font-bold mb-1">Live Appearances</h2>
+          <p class="text-gray-500 text-sm">Documented performances and stage recordings.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="space-y-3">
-            <div class="media-frame p-2">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="space-y-4">
+            <div class="media-frame aspect-video">
               <video controls preload="metadata">
                 <source src="media/perf_1.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
               </video>
             </div>
-            <p class="text-sm font-medium text-gray-300 px-1 italic">Performance video 1</p>
+            <p class="text-xs font-bold text-purple-400 tracking-widest uppercase">Performance for a contest 04.05.2024</p>
           </div>
-          <div class="space-y-3">
-            <div class="media-frame p-2">
+          <div class="space-y-4">
+            <div class="media-frame aspect-video">
               <video controls preload="metadata">
                 <source src="media/perf_3.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
               </video>
             </div>
-            <p class="text-sm font-medium text-gray-300 px-1 italic">Performance video 2</p>
+            <p class="text-xs font-bold text-purple-400 tracking-widest uppercase">Performance for a contest 23.04.2023</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="py-20">
-      <div class="container mx-auto px-6 space-y-12">
-        <div>
-          <div class="flex items-center gap-4 mb-3">
-            <h2 class="text-3xl font-bold">Seventy Seven</h2>
-            <span class="px-2 py-0.5 rounded bg-white/10 text-xs font-mono">Group</span>
-          </div>
-          <p class="text-gray-400 italic">Group performances, social clips, and live session highlights.</p>
+    <section class="py-24">
+      <div class="container mx-auto px-6 space-y-16">
+        <div class="flex flex-col md:flex-row items-baseline gap-6 border-b border-white/10 pb-10">
+          <h2 class="text-5xl font-black tracking-tight">Seventy Seven</h2>
+          <p class="text-gray-400 max-w-lg leading-relaxed">
+            A collaborative musical project. We organize charity concerts, perform at various school events, and participate in regional music contests.
+          </p>
         </div>
 
-        <div class="flex flex-wrap gap-3">
-          <a href="https://www.tiktok.com/@stage2_group?_r=1&_t=ZM-92xePl1nqQ7" target="_blank" rel="noopener" class="glass px-4 py-2 rounded-full text-sm font-semibold hover:bg-white/10 transition flex items-center gap-2">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.03 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
-            </svg>
-            @stage2_group
-          </a>
-          <a href="https://www.tiktok.com/@seventy.seven55?_r=1&_t=ZM-92xeNak858e" target="_blank" rel="noopener" class="glass px-4 py-2 rounded-full text-sm font-semibold hover:bg-white/10 transition flex items-center gap-2">
-            @seventy.seven55
-          </a>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div class="space-y-3">
-            <div class="media-frame p-2">
-              <video controls preload="metadata">
-                <source src="media/perf_stage2_1.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <p class="text-sm font-medium text-gray-300 px-1 italic">Session video 1</p>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div class="media-frame aspect-[9/16]">
+            <video controls preload="metadata"><source src="media/perf_stage2_1.mp4" type="video/mp4" /></video>
           </div>
-          <div class="space-y-3">
-            <div class="media-frame p-2">
-              <video controls preload="metadata">
-                <source src="media/perf_stage2_2.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <p class="text-sm font-medium text-gray-300 px-1 italic">Session video 2</p>
+          <div class="media-frame aspect-[9/16]">
+            <video controls preload="metadata"><source src="media/perf_stage2_2.mp4" type="video/mp4" /></video>
           </div>
-          <div class="space-y-3">
-            <div class="media-frame p-2">
-              <video controls preload="metadata">
-                <source src="media/perf_stage2_3.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <p class="text-sm font-medium text-gray-300 px-1 italic">Session video 3</p>
+          <div class="media-frame aspect-[9/16]">
+            <video controls preload="metadata"><source src="media/perf_stage2_3.mp4" type="video/mp4" /></video>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="space-y-3">
-            <div class="media-frame">
-              <img src="media/77_1.jpg" alt="Seventy Seven group photo" />
-            </div>
-            <p class="text-sm font-medium text-gray-300 px-1 italic">Group photo</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="media-frame"><img src="media/77_1.jpg" alt="Group" /></div>
+          <div class="space-y-4">
+            <div class="media-frame"><img src="media/77_2.jpg" alt="Concert" /></div>
+            <p class="text-xs font-bold text-gray-500 tracking-widest uppercase text-center">Concert 05.27.2025</p>
           </div>
-          <div class="space-y-3">
-            <div class="media-frame">
-              <img src="media/77_2.jpg" alt="Seventy Seven concert photo 1" />
-            </div>
-            <p class="text-sm font-medium text-gray-300 px-1 italic">Concert moment 1</p>
-          </div>
-          <div class="space-y-3">
-            <div class="media-frame">
-              <img src="media/77_3.jpg" alt="Seventy Seven concert photo 2" />
-            </div>
-            <p class="text-sm font-medium text-gray-300 px-1 italic">Concert moment 2</p>
-          </div>
+          <div class="media-frame"><img src="media/77_3.jpg" alt="Live" /></div>
         </div>
       </div>
     </section>
 
-    <section class="py-20 bg-white/[0.02]">
+    <section class="py-24 bg-white/[0.02]">
       <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div class="space-y-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+          <div class="space-y-12">
             <div>
-              <div class="flex items-center gap-4 mb-2">
-                <h2 class="text-3xl font-bold">SAMusic</h2>
-                <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-400 text-xs font-mono uppercase">Solo</span>
-              </div>
-              <p class="text-gray-400 italic">Solo music experiments, snippets, and behind-the-scenes clips.</p>
+              <h2 class="text-5xl font-black mb-6">Solo Works</h2>
+              <p class="text-gray-400 text-lg font-light leading-relaxed">
+                Personal sound experiments and behind-the-scenes clips from my home studio.
+              </p>
             </div>
 
-            <div class="flex flex-wrap gap-3">
-              <a href="https://www.tiktok.com/@sammusic10245?_r=1&_t=ZM-92xf6UFEzt6" target="_blank" rel="noopener" class="glass px-4 py-2 rounded-full text-sm font-semibold hover:bg-white/10 transition flex items-center gap-2 border border-purple-500/20">
-                <svg class="w-4 h-4 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.03 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
-                </svg>
-                @sammusic10245
-              </a>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div class="space-y-3">
-                <div class="media-frame p-2">
-                  <video controls preload="metadata">
-                    <source src="media/perf_sammusic_1.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="text-sm font-medium text-gray-300 px-1 italic">SAMusic video 1</p>
-              </div>
-              <div class="space-y-3">
-                <div class="media-frame p-2">
-                  <video controls preload="metadata">
-                    <source src="media/perf_sammusic_2.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <p class="text-sm font-medium text-gray-300 px-1 italic">SAMusic video 2</p>
-              </div>
+            <div class="grid grid-cols-2 gap-6">
+              <div class="media-frame aspect-[9/16]"><video controls><source src="media/perf_sammusic_1.mp4"></video></div>
+              <div class="media-frame aspect-[9/16]"><video controls><source src="media/perf_sammusic_2.mp4"></video></div>
             </div>
           </div>
 
-          <div class="space-y-6">
-            <div>
-              <h2 class="text-2xl font-bold mb-2">My songs</h2>
-              <p class="text-gray-400">Original tracks available to stream directly from this page.</p>
-            </div>
-            <div class="grid grid-cols-1 gap-6">
-              <div class="audio-player p-6 space-y-5" data-audio-player>
-                <audio preload="metadata" data-audio-src="media/music_1.mp3"></audio>
-                <div class="flex items-center gap-4">
-                  <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg shadow-purple-500/20">
-                    <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M9 19V6l12-3v13a3 3 0 1 1-2-2.83V6.47L11 8.53V19a3 3 0 1 1-2-2.83z"></path>
-                    </svg>
-                  </div>
-                  <div class="flex-1 overflow-hidden">
-                    <h3 class="font-bold text-lg truncate">Feeling</h3>
-                    <p class="text-purple-300 text-sm truncate">Original Composition</p>
-                  </div>
-                </div>
-                <div>
-                  <input type="range" min="0" max="0" value="0" class="player-range w-full h-1.5 bg-white/10 rounded-lg cursor-pointer" data-progress />
-                  <div class="flex justify-between text-xs text-gray-400 mt-2 font-mono">
-                    <span data-current>0:00</span>
-                    <span data-duration>0:00</span>
-                  </div>
-                </div>
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-4">
-                    <button type="button" class="text-gray-400 hover:text-white transition-colors" data-skip="-10">
-                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M11 18V6l-8.5 6L11 18zm1-6l8.5 6V6L12 12zm-7-9h2v18H5V3z"></path>
-                      </svg>
-                    </button>
-                    <button type="button" class="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center hover:scale-105 active:scale-95 transition-transform" data-play>
-                      <svg class="w-6 h-6 ml-0.5" viewBox="0 0 24 24" fill="currentColor" data-icon-play>
-                        <path d="M8 5v14l11-7z"></path>
-                      </svg>
-                      <svg class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="currentColor" data-icon-pause>
-                        <path d="M6 5h4v14H6zm8 0h4v14h-4z"></path>
-                      </svg>
-                    </button>
-                    <button type="button" class="text-gray-400 hover:text-white transition-colors" data-skip="10">
-                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M13 18V6l8.5 6L13 18zM12 12 3.5 6v12L12 12zm7-9h-2v18h2V3z"></path>
-                      </svg>
-                    </button>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <svg class="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a3.5 3.5 0 0 0-2.5-3.35v6.7a3.5 3.5 0 0 0 2.5-3.35z"></path>
-                      <path d="M14 3.23v2.06a7 7 0 0 1 0 13.42v2.06a9 9 0 0 0 0-17.54z"></path>
-                    </svg>
-                    <input type="range" min="0" max="1" step="0.01" value="0.7" class="player-range w-20 h-1 bg-white/10 rounded-lg cursor-pointer" data-volume />
-                  </div>
-                </div>
-              </div>
-
-              <div class="audio-player p-6 space-y-5" data-audio-player>
+          <div class="space-y-8 pt-4">
+            <h3 class="text-2xl font-bold text-purple-400 uppercase tracking-widest mb-8 border-l-4 border-purple-500 pl-6">Latest Tracks</h3>
+            
+            <div class="grid grid-cols-1 gap-8">
+              <!-- Player 1: You Think You Have Time -->
+              <div class="audio-player p-8 space-y-6" data-audio-player>
                 <audio preload="metadata" data-audio-src="media/music_2.mp3"></audio>
-                <div class="flex items-center gap-4">
-                  <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg shadow-purple-500/20">
-                    <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M9 19V6l12-3v13a3 3 0 1 1-2-2.83V6.47L11 8.53V19a3 3 0 1 1-2-2.83z"></path>
+                <div class="flex items-center gap-6">
+                  <div class="w-20 h-20 bg-gradient-to-br from-indigo-500 to-purple-700 rounded-3xl flex items-center justify-center shadow-2xl shadow-purple-500/30">
+                    <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
                     </svg>
                   </div>
-                  <div class="flex-1 overflow-hidden">
-                    <h3 class="font-bold text-lg truncate">You Think You Have Time</h3>
-                    <p class="text-purple-300 text-sm truncate">Original Composition</p>
+                  <div class="flex-1 min-w-0">
+                    <h4 class="font-black text-2xl truncate tracking-tight">You Think You Have Time</h4>
+                    <p class="text-purple-400 text-sm font-medium">Original Composition</p>
                   </div>
                 </div>
                 <div>
-                  <input type="range" min="0" max="0" value="0" class="player-range w-full h-1.5 bg-white/10 rounded-lg cursor-pointer" data-progress />
-                  <div class="flex justify-between text-xs text-gray-400 mt-2 font-mono">
+                  <input type="range" min="0" max="0" value="0" class="player-range w-full h-1 bg-white/10 rounded-lg cursor-pointer appearance-none" data-progress />
+                  <div class="flex justify-between text-[10px] text-gray-500 mt-3 font-mono uppercase tracking-widest">
                     <span data-current>0:00</span>
                     <span data-duration>0:00</span>
                   </div>
                 </div>
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-4">
-                    <button type="button" class="text-gray-400 hover:text-white transition-colors" data-skip="-10">
-                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M11 18V6l-8.5 6L11 18zm1-6l8.5 6V6L12 12zm-7-9h2v18H5V3z"></path>
-                      </svg>
+                <div class="flex items-center justify-between pt-2">
+                  <div class="flex items-center gap-6">
+                    <button class="text-gray-500 hover:text-white transition-colors" data-skip="-10">
+                      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.5 5v14L6 12l6.5-7zM18 5v14l-6.5-7L18 5z"/></svg>
                     </button>
-                    <button type="button" class="w-12 h-12 bg-white text-black rounded-full flex items-center justify-center hover:scale-105 active:scale-95 transition-transform" data-play>
-                      <svg class="w-6 h-6 ml-0.5" viewBox="0 0 24 24" fill="currentColor" data-icon-play>
-                        <path d="M8 5v14l11-7z"></path>
-                      </svg>
-                      <svg class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="currentColor" data-icon-pause>
-                        <path d="M6 5h4v14H6zm8 0h4v14h-4z"></path>
-                      </svg>
+                    <button class="w-14 h-14 bg-white text-black rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-all shadow-xl shadow-white/10" data-play>
+                      <svg class="w-7 h-7 ml-1" viewBox="0 0 24 24" fill="currentColor" data-icon-play><path d="M8 5v14l11-7z"/></svg>
+                      <svg class="w-7 h-7 hidden" viewBox="0 0 24 24" fill="currentColor" data-icon-pause><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
                     </button>
-                    <button type="button" class="text-gray-400 hover:text-white transition-colors" data-skip="10">
-                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M13 18V6l8.5 6L13 18zM12 12 3.5 6v12L12 12zm7-9h-2v18h2V3z"></path>
-                      </svg>
+                    <button class="text-gray-500 hover:text-white transition-colors" data-skip="10">
+                      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M5.5 5v14L12 12 5.5 5zM11 5v14l6.5-7L11 5z"/></svg>
                     </button>
                   </div>
-                  <div class="flex items-center gap-2">
-                    <svg class="w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a3.5 3.5 0 0 0-2.5-3.35v6.7a3.5 3.5 0 0 0 2.5-3.35z"></path>
-                      <path d="M14 3.23v2.06a7 7 0 0 1 0 13.42v2.06a9 9 0 0 0 0-17.54z"></path>
-                    </svg>
-                    <input type="range" min="0" max="1" step="0.01" value="0.7" class="player-range w-20 h-1 bg-white/10 rounded-lg cursor-pointer" data-volume />
+                  <div class="flex items-center gap-3">
+                    <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+                    <input type="range" min="0" max="1" step="0.01" value="0.7" class="player-range w-16 h-1 bg-white/10 rounded-lg cursor-pointer appearance-none" data-volume />
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="py-20 bg-purple-900/10">
-      <div class="container mx-auto px-6">
-        <div class="max-w-4xl mx-auto">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="relative pl-8 border-l-2 border-purple-500/30">
-              <div class="absolute top-0 -left-[9px] w-4 h-4 rounded-full bg-purple-500 ring-4 ring-purple-500/20"></div>
-              <h4 class="text-xl font-bold mb-4">Signature Projects</h4>
-              <p class="text-gray-400 leading-relaxed">
-                Original EPs, worship arrangements, and complex sound design for research demos.
-                Integrating digital tools with analog soul.
-              </p>
-            </div>
-            <div class="relative pl-8 border-l-2 border-pink-500/30">
-              <div class="absolute top-0 -left-[9px] w-4 h-4 rounded-full bg-pink-500 ring-4 ring-pink-500/20"></div>
-              <h4 class="text-xl font-bold mb-4">Ongoing Goals</h4>
-              <p class="text-gray-400 leading-relaxed">
-                Building a community studio space and mentoring emerging artists to find their
-                unique sonic signature.
-              </p>
+              <!-- Player 2: Feeling -->
+              <div class="audio-player p-8 space-y-6" data-audio-player>
+                <audio preload="metadata" data-audio-src="media/music_1.mp3"></audio>
+                <div class="flex items-center gap-6">
+                  <div class="w-20 h-20 bg-gradient-to-br from-pink-500 to-rose-700 rounded-3xl flex items-center justify-center shadow-2xl shadow-pink-500/30">
+                    <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 7.5 12 7.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5z"/>
+                    </svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <h4 class="font-black text-2xl truncate tracking-tight">Feeling</h4>
+                    <p class="text-pink-400 text-sm font-medium">Original Composition</p>
+                  </div>
+                </div>
+                <div>
+                  <input type="range" min="0" max="0" value="0" class="player-range w-full h-1 bg-white/10 rounded-lg cursor-pointer appearance-none" data-progress />
+                  <div class="flex justify-between text-[10px] text-gray-500 mt-3 font-mono uppercase tracking-widest">
+                    <span data-current>0:00</span>
+                    <span data-duration>0:00</span>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between pt-2">
+                  <div class="flex items-center gap-6">
+                    <button class="text-gray-500 hover:text-white transition-colors" data-skip="-10">
+                      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.5 5v14L6 12l6.5-7zM18 5v14l-6.5-7L18 5z"/></svg>
+                    </button>
+                    <button class="w-14 h-14 bg-white text-black rounded-full flex items-center justify-center hover:scale-110 active:scale-95 transition-all shadow-xl shadow-white/10" data-play>
+                      <svg class="w-7 h-7 ml-1" viewBox="0 0 24 24" fill="currentColor" data-icon-play><path d="M8 5v14l11-7z"/></svg>
+                      <svg class="w-7 h-7 hidden" viewBox="0 0 24 24" fill="currentColor" data-icon-pause><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+                    </button>
+                    <button class="text-gray-500 hover:text-white transition-colors" data-skip="10">
+                      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M5.5 5v14L12 12 5.5 5zM11 5v14l6.5-7L11 5z"/></svg>
+                    </button>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <svg class="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+                    <input type="range" min="0" max="1" step="0.01" value="0.7" class="player-range w-16 h-1 bg-white/10 rounded-lg cursor-pointer appearance-none" data-volume />
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -453,12 +280,10 @@
     </section>
   </main>
 
-  <footer class="py-16 border-t border-white/10">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-2xl font-bold mb-4 tracking-tight">Let’s create something <span class="gradient-text">extraordinary.</span></h2>
-      <p class="text-gray-500 mb-8 max-w-lg mx-auto">Collaborate on music, sound design, or live performance experiences.</p>
-    </div>
+  <footer class="py-20 border-t border-white/5 text-center">
+    <p class="text-[10px] text-gray-600 uppercase tracking-[0.4em] font-bold">&copy; 2026 SAM PORTFOLIO</p>
   </footer>
+
   <script>
     const players = Array.from(document.querySelectorAll('[data-audio-player]'));
     const playerState = new Map();
@@ -474,10 +299,8 @@
       playerState.forEach(({ audio, playIcon, pauseIcon, progress }) => {
         if (audio !== currentAudio) {
           audio.pause();
-          audio.currentTime = 0;
           playIcon.classList.remove('hidden');
           pauseIcon.classList.add('hidden');
-          progress.value = 0;
         }
       });
     };

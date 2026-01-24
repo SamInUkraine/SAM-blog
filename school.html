@@ -48,6 +48,10 @@
       background: #0f0f13;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: transform 0.3s ease;
+    }
+    .media-frame:hover {
+      transform: scale(1.02);
     }
     .media-frame img,
     .media-frame video {
@@ -156,10 +160,8 @@
       <div class="container mx-auto px-6 relative text-center">
         <span class="inline-block px-4 py-1 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-xs font-bold uppercase tracking-widest mb-6">Education</span>
         <h2 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">Academic journey & <span class="gradient-text">learning milestones.</span></h2>
-        
       </div>
     </section>
-
 
     <section class="py-20 space-y-32">
       
@@ -168,13 +170,12 @@
         <div class="flex flex-col md:flex-row items-end justify-between mb-10 gap-4">
           <div>
             <h2 class="text-3xl font-bold mb-2">IT STEP Academy</h2>
-            <p class="text-gray-500">Professional computer education and technical certification.</p>
+            <p class="text-gray-500 max-w-xl">Professional computer education and technical certification. Over five years of intensive study in programming, design, and digital engineering.</p>
           </div>
           <div class="hidden md:block h-px flex-1 bg-white/10 mx-8 mb-4"></div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <!-- Карточка-превью -->
           <div id="open-step-modal" class="step-card p-8 group cursor-pointer relative overflow-hidden">
             <div class="absolute -top-4 -right-4 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity">
               <svg class="w-48 h-48 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zm-7 8v6l7 3 7-3v-6l-7 3-7-3z"/></svg>
@@ -193,14 +194,14 @@
 
               <div class="space-y-4 mb-10">
                 <div class="flex justify-between items-center py-2 border-b border-white/5">
-                  <span class="text-gray-400">Status</span>
-                  <span class="text-white font-semibold">Graduated with Honors</span>
+                  <span class="text-gray-400">Duration</span>
+                  <span class="text-white font-semibold">5 Years of Excellence</span>
                 </div>
                 <div class="flex justify-between items-center py-2 border-b border-white/5">
-                  <span class="text-gray-400">Total Subjects</span>
-                  <span class="text-white font-mono font-bold">27</span>
+                  <span class="text-gray-400">Class Standing</span>
+                  <span class="text-white font-bold bg-purple-500/20 text-purple-400 px-3 py-1 rounded-md">Ranked #1 in Cohort</span>
                 </div>
-                <div class="flex justify-between items-center py-2">
+                <div class="flex justify-between items-center py-2 border-b border-white/5">
                   <span class="text-gray-400">Avg. Grade</span>
                   <span class="text-emerald-400 font-mono font-black text-xl">11.7/12.0</span>
                 </div>
@@ -213,14 +214,32 @@
             </div>
           </div>
 
-          <!-- Фото IT STEP -->
           <div class="media-frame h-full min-h-[400px]">
             <img src="media/grad_photo_3.jpg" alt="IT Academy Graduation" class="object-cover h-full" />
           </div>
         </div>
       </div>
 
-      <!-- NEW SECTION: MUSIC GRADUATION -->
+      <!-- NEW SECTION: AWARDS -->
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-end justify-between mb-10 gap-4">
+          <div>
+            <h2 class="text-3xl font-bold mb-2">Awards & Recognition</h2>
+            <p class="text-gray-500 max-w-2xl">Honoring excellence across various disciplines. I have been recognized for my contributions to music, cinematography, historical studies, and scientific research—including a first-place award in the city-wide research competition.</p>
+          </div>
+          <div class="hidden md:block h-px flex-1 bg-white/10 mx-8 mb-4"></div>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <div class="media-frame aspect-[3/4]"><img src="media/award_1.jpg" alt="Award 1" onerror="this.src='https://via.placeholder.com/300x400/121215/purple?text=Award+1'"></div>
+          <div class="media-frame aspect-[3/4]"><img src="media/award_2.jpg" alt="Award 2" onerror="this.src='https://via.placeholder.com/300x400/121215/purple?text=Award+2'"></div>
+          <div class="media-frame aspect-[3/4]"><img src="media/award_3.jpg" alt="Award 3" onerror="this.src='https://via.placeholder.com/300x400/121215/purple?text=Award+3'"></div>
+          <div class="media-frame aspect-[3/4]"><img src="media/award_4.jpg" alt="Award 4" onerror="this.src='https://via.placeholder.com/300x400/121215/purple?text=Award+4'"></div>
+          <div class="media-frame aspect-[3/4]"><img src="media/award_5.jpg" alt="Award 5" onerror="this.src='https://via.placeholder.com/300x400/121215/purple?text=Award+5'"></div>
+        </div>
+      </div>
+
+      <!-- Music Graduation -->
       <div class="container mx-auto px-6">
         <div class="flex flex-col md:flex-row items-end justify-between mb-10 gap-4">
           <div>
@@ -242,7 +261,13 @@
 
       <!-- Cinema Section -->
       <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-8">School Cinema</h2>
+        <div class="flex flex-col md:flex-row items-end justify-between mb-10 gap-4">
+          <div>
+            <h2 class="text-3xl font-bold mb-2">School Cinema</h2>
+            <p class="text-gray-500 max-w-2xl">The School Cinema was my signature pre-election project. Beyond its successful launch, it generated over $1,000 in profit, which was reinvested to fund other student initiatives and creative projects within the school.</p>
+          </div>
+          <div class="hidden md:block h-px flex-1 bg-white/10 mx-8 mb-4"></div>
+        </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div class="media-frame aspect-video bg-black flex items-center justify-center">
             <video controls class="w-full h-full">
@@ -259,7 +284,13 @@
 
       <!-- Volunteering -->
       <div class="container mx-auto px-6">
-        <h2 class="text-3xl font-bold mb-8">Volunteering</h2>
+        <div class="flex flex-col md:flex-row items-end justify-between mb-10 gap-4">
+          <div>
+            <h2 class="text-3xl font-bold mb-2">Volunteering</h2>
+            <p class="text-gray-500 max-w-2xl">I serve as the Head of the REP volunteer team. Together, we manage and execute a vast array of community projects, focusing on social impact and helping those in need through dedicated teamwork and leadership.</p>
+          </div>
+          <div class="hidden md:block h-px flex-1 bg-white/10 mx-8 mb-4"></div>
+        </div>
         <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
           <div class="media-frame aspect-square"><img src="media/volunteering_1.jpg" alt="V1"></div>
           <div class="media-frame aspect-square"><img src="media/volunteering_2.jpg" alt="V2"></div>
@@ -295,7 +326,7 @@
           <div class="w-24 h-px bg-white/20 mx-auto mb-6"></div>
           <p class="text-xl text-white font-bold mb-2">IT STEP ACADEMY</p>
           <p class="text-gray-400 text-sm max-w-lg mx-auto leading-relaxed">
-            This certifies that the student has successfully completed the full academic cycle of the Junior Computer Academy with exceptional performance across software engineering and digital creative disciplines.
+            This certifies that the student has successfully completed the full academic cycle of the Junior Computer Academy with exceptional performance, graduating as the top-ranking student (#1) in the cohort across software engineering and digital creative disciplines.
           </p>
         </div>
 
@@ -319,7 +350,7 @@
 
   <footer class="py-20 border-t border-white/10 text-center">
     <div class="container mx-auto px-6">
-      <h2 class="text-2xl font-bold mb-4">Build<span class="gradient-text">meaningful.</span></h2>
+      <h2 class="text-2xl font-bold mb-4">Build <span class="gradient-text">meaningful.</span></h2>
     </div>
   </footer>
 

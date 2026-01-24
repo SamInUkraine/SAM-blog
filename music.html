@@ -57,6 +57,13 @@
       display: block;
       object-fit: cover;
     }
+    .media-frame img {
+      cursor: zoom-in;
+      transition: transform 0.4s ease;
+    }
+    .media-frame img:hover {
+      transform: scale(1.03);
+    }
     .audio-player {
       border-radius: 28px;
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -66,6 +73,28 @@
     }
     .player-range {
       accent-color: #a78bfa;
+    }
+
+    /* Lightbox Styles */
+    #lightbox {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    #lightbox.active {
+      display: flex;
+      opacity: 1;
+    }
+    .lightbox-img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 12px;
+      box-shadow: 0 0 50px rgba(0,0,0,0.8);
+      transform: scale(0.95);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    #lightbox.active .lightbox-img {
+      transform: scale(1);
     }
   </style>
 </head>
@@ -331,11 +360,47 @@
     </section>
   </main>
 
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-xl cursor-zoom-out">
+    <button class="absolute top-6 right-8 text-white/50 hover:text-white transition-colors text-4xl" aria-label="Close">&times;</button>
+    <img src="" alt="Full view" class="lightbox-img">
+  </div>
+
   <footer class="py-20 border-t border-white/5 text-center">
     <p class="text-[10px] text-gray-600 uppercase tracking-[0.4em] font-bold">&copy; 2026 SAM PORTFOLIO</p>
   </footer>
 
   <script>
+    // Lightbox Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const zoomableImages = document.querySelectorAll('.media-frame img');
+
+    zoomableImages.forEach(img => {
+      img.addEventListener('click', (e) => {
+        const src = e.target.getAttribute('src');
+        lightboxImg.setAttribute('src', src);
+        lightbox.classList.add('active');
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Lock scroll
+      });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      setTimeout(() => {
+        lightbox.style.display = 'none';
+      }, 300);
+      document.body.style.overflow = ''; // Restore scroll
+    };
+
+    lightbox.addEventListener('click', closeLightbox);
+    
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // Audio Players Logic
     const players = Array.from(document.querySelectorAll('[data-audio-player]'));
     const playerState = new Map();
 

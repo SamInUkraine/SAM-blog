@@ -47,6 +47,7 @@
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.1);
       box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      cursor: zoom-in;
     }
     .media-frame img {
       width: 100%;
@@ -60,6 +61,28 @@
     .stat-card {
       background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(244, 114, 182, 0.05) 100%);
       border: 1px solid rgba(139, 92, 246, 0.2);
+    }
+
+    /* Lightbox Styles */
+    #lightbox {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    #lightbox.active {
+      display: flex;
+      opacity: 1;
+    }
+    .lightbox-img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 12px;
+      box-shadow: 0 0 50px rgba(0,0,0,0.8);
+      transform: scale(0.9);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    #lightbox.active .lightbox-img {
+      transform: scale(1);
     }
   </style>
 </head>
@@ -165,19 +188,32 @@
            <div class="space-y-6">
              <div class="media-frame aspect-video">
                <img src="media/fl_3.jpg" alt="Presentation to Authorities" onerror="this.src='https://via.placeholder.com/800x450/121215/333?text=City+Hall+Presentation'">
-               <img src="media/fl_4.jpg" alt="Presentation to Authorities" onerror="this.src='https://via.placeholder.com/800x450/121215/333?text=City+Hall+Presentation'">
-              </div>
-            <div class="space-y-6">
+             </div>
+             <p class="text-gray-400 italic text-sm">Presenting the project to Kryvyi Rih city authorities, discussing development of the startup.</p>
+           </div>
+           <div class="space-y-6">
              <div class="media-frame aspect-video">
                <img src="media/fl_4.jpg" alt="US Investors Meeting" onerror="this.src='https://via.placeholder.com/800x450/121215/333?text=US+Investors+Meeting'">
              </div>
+             <p class="text-gray-400 italic text-sm">Meeting with international investors from the USA to discuss growth opportunities.</p>
            </div>
-            <p class="text-gray-400 italic text-sm">Presenting the project to Kryvyi Rih city authorities and international investors from the USA, discussing development of the startup.</p>
         </div>
         
+        <div class="glass p-10 rounded-3xl max-w-4xl mx-auto text-center">
+          <h4 class="text-2xl font-bold mb-6">Bridging Cultures</h4>
+          <p class="text-gray-400 leading-relaxed">
+            Our startup represents more than just a school; it is a platform for cultural exchange. By hosting events with foreigners, we provide our students with the unique opportunity to implement their skills in real-time, building confidence and global connections.
+          </p>
+        </div>
       </div>
     </section>
   </main>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightbox" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-xl cursor-zoom-out">
+    <button class="absolute top-6 right-8 text-white/50 hover:text-white transition-colors text-4xl">&times;</button>
+    <img src="" alt="Full view" class="lightbox-img">
+  </div>
 
   <footer class="py-20 border-t border-white/10 text-center">
     <div class="container mx-auto px-6">
@@ -185,5 +221,34 @@
       <p class="text-gray-500 mb-8">Developed by a team of 5 visionaries under the leadership of CEO SAM.</p>
     </div>
   </footer>
+
+  <script>
+    // Lightbox Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const zoomableImages = document.querySelectorAll('.media-frame img');
+
+    zoomableImages.forEach(img => {
+      img.addEventListener('click', (e) => {
+        const src = e.target.getAttribute('src');
+        lightboxImg.setAttribute('src', src);
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Запрет прокрутки
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = ''; // Возврат прокрутки
+    });
+
+    // Закрытие по ESC
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
 </body>
 </html>

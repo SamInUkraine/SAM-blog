@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Other Projects | SAM Resume</title>
+  <title>Fusion Language | Startup Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -42,6 +42,25 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    .media-frame {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+    .media-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .media-frame:hover img {
+      transform: scale(1.05);
+    }
+    .stat-card {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(244, 114, 182, 0.05) 100%);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+    }
   </style>
 </head>
 <body class="antialiased selection:bg-purple-500/30">
@@ -51,76 +70,114 @@
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center font-bold text-xl">S</div>
           <div>
-            <p class="text-[10px] uppercase tracking-[0.2em] text-purple-400 font-bold leading-none mb-1">Portfolio</p>
-            <h1 class="text-lg font-extrabold tracking-tight">OTHER PROJECTS</h1>
+            <p class="text-[10px] uppercase tracking-[0.2em] text-purple-400 font-bold leading-none mb-1">Co-Founder</p>
+            <h1 class="text-lg font-extrabold tracking-tight uppercase">Fusion Language</h1>
           </div>
         </div>
         <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-gray-400">
           <a href="index.html" class="nav-link hover:text-white">Me</a>
           <a href="music.html" class="nav-link hover:text-white">Music</a>
           <a href="school.html" class="nav-link hover:text-white">School</a>
-                    <a href="development.html" class="nav-link hover:text-white">Development</a>
-          <a href="other-projects.html" class="nav-link active text-white">Other Projects</a>
+          <a href="development.html" class="nav-link hover:text-white">Development</a>
+          <a href="other-projects.html" class="nav-link active text-white">Startup</a>
         </nav>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="relative pt-20 pb-16 overflow-hidden">
+    <!-- HERO SECTION -->
+    <section class="relative pt-24 pb-20 overflow-hidden">
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-6xl pointer-events-none">
         <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[120px]"></div>
         <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-600/10 rounded-full blur-[120px]"></div>
       </div>
       <div class="container mx-auto px-6 relative text-center">
-        <span class="inline-block px-4 py-1 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-xs font-bold uppercase tracking-widest mb-6">Experiments</span>
-        <h2 class="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">Side quests &amp; <span class="gradient-text">passion projects.</span></h2>
-        <p class="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl leading-relaxed">
-          These are the projects I build after hours—mixing curiosity, community, and fresh
-          skills. They often turn into future research or collaborations.
+        <span class="inline-block px-4 py-1 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-xs font-bold uppercase tracking-widest mb-6">CEO & Co-Founder</span>
+        <h2 class="text-6xl md:text-7xl font-extrabold mb-8 tracking-tight">Fusion <span class="gradient-text">Language.</span></h2>
+        <p class="max-w-3xl mx-auto text-gray-400 text-lg md:text-xl leading-relaxed mb-12">
+          Revolutionizing language education through a practice-first methodology. We create immersive learning experiences that bridge the gap between theory and real-world communication.
         </p>
-      </div>
-    </section>
-
-    <section class="py-12">
-      <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="glass p-8 rounded-2xl hover:bg-white/5 transition-colors">
-            <h3 class="text-xl font-bold mb-3">Freelance projects</h3>
-            <p class="text-gray-400 leading-relaxed">Brand storytelling, digital product audits, and content strategy for startups.</p>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+          <div class="glass p-6 rounded-2xl">
+            <p class="text-3xl font-black text-white mb-1">05</p>
+            <p class="text-xs uppercase text-gray-500 font-bold tracking-widest">Team Size</p>
           </div>
-          <div class="glass p-8 rounded-2xl hover:bg-white/5 transition-colors">
-            <h3 class="text-xl font-bold mb-3">Creative challenges</h3>
-            <p class="text-gray-400 leading-relaxed">Weekly design prompts, coding jams, and collaborative art experiments.</p>
+          <div class="glass p-6 rounded-2xl">
+            <p class="text-3xl font-black text-emerald-400 mb-1">#2</p>
+            <p class="text-xs uppercase text-gray-500 font-bold tracking-widest">Startup Pro Rank</p>
           </div>
-          <div class="glass p-8 rounded-2xl hover:bg-white/5 transition-colors">
-            <h3 class="text-xl font-bold mb-3">Community initiatives</h3>
-            <p class="text-gray-400 leading-relaxed">Mentoring circles, open-source contributions, and neighborhood workshops.</p>
+          <div class="glass p-6 rounded-2xl">
+            <p class="text-3xl font-black text-purple-400 mb-1">02y</p>
+            <p class="text-xs uppercase text-gray-500 font-bold tracking-widest">Incubation</p>
+          </div>
+          <div class="glass p-6 rounded-2xl">
+            <p class="text-3xl font-black text-pink-400 mb-1">INTL</p>
+            <p class="text-xs uppercase text-gray-500 font-bold tracking-widest">Investor Reach</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- COMPETITION & MEDIA SECTION -->
+    <section class="py-20 border-t border-white/5">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row gap-12 items-center">
+          <div class="w-full md:w-1/2">
+            <span class="text-purple-500 font-bold uppercase tracking-widest text-xs">The Achievement</span>
+            <h3 class="text-4xl font-bold mt-4 mb-6">Startup Pro <span class="text-gray-500">Silver Medalists</span></h3>
+            <p class="text-gray-400 leading-relaxed text-lg mb-8">
+              Competing against the most innovative minds in Kryvyi Rih, Fusion Language secured **2nd place** at the prestigious **Startup Pro** competition. Our vision for an interactive educational ecosystem impressed the jury with its scalability and unique focus on real-world practical application.
+            </p>
+            <div class="flex gap-4">
+               <div class="media-frame aspect-square w-1/2">
+                 <img src="media/fl_1.jpg" alt="Startup Pro Team Photo" onerror="this.src='https://via.placeholder.com/600x600/121215/8b5cf6?text=Startup+Pro+I'">
+               </div>
+               <div class="media-frame aspect-square w-1/2">
+                 <img src="media/fl_2.jpg" alt="Receiving Award" onerror="this.src='https://via.placeholder.com/600x600/121215/f472b6?text=Startup+Pro+II'">
+               </div>
+            </div>
+          </div>
+          <div class="w-full md:w-1/2 grid grid-cols-1 gap-6">
+            <div class="stat-card p-8 rounded-3xl">
+               <h4 class="text-xl font-bold mb-4">The Methodology</h4>
+               <p class="text-gray-400">Individual approach combined with immersive events. We don't just teach grammar; we organize real-life interactions with native speakers and international guests to ensure our students can use the language where it matters most.</p>
+            </div>
+            <div class="glass p-8 rounded-3xl border-white/10">
+               <h4 class="text-xl font-bold mb-4">eo Business Incubators</h4>
+               <p class="text-gray-400">For two years, our team underwent rigorous pre-incubation training at **eo Business Incubators**, refining our business model, market strategy, and financial planning to transition from an idea to a market-ready startup.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INVESTORS & AUTHORITIES SECTION -->
     <section class="py-20 bg-white/[0.02]">
+      <div class="container mx-auto px-6 text-center mb-16">
+        <span class="text-pink-500 font-bold uppercase tracking-widest text-xs">Global Exposure</span>
+        <h3 class="text-4xl font-bold mt-4">Presenting to the <span class="gradient-text">World.</span></h3>
+      </div>
+      
       <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="glass p-6 rounded-2xl">
-            <h3 class="text-lg font-semibold mb-2">What’s next</h3>
-            <p class="text-gray-400">Launching a newsletter and micro-grants for community-based creative work.</p>
-          </div>
-          <div class="glass p-6 rounded-2xl">
-            <h3 class="text-lg font-semibold mb-2">Fun fact</h3>
-            <p class="text-gray-400">I keep a “project seed bank” to track every spark of inspiration.</p>
-          </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+           <div class="space-y-6">
+             <div class="media-frame aspect-video">
+               <img src="media/fl_3.jpg" alt="Presentation to Authorities" onerror="this.src='https://via.placeholder.com/800x450/121215/333?text=City+Hall+Presentation'">
+             </div>
+             <p class="text-gray-400 italic text-sm">Presenting the project to Kryvyi Rih city authorities and international investors from the USA, discussing development of the startup.</p>
+           </div>
         </div>
+        
       </div>
     </section>
   </main>
 
-  <footer class="py-16 border-t border-white/10">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-2xl font-bold mb-4 tracking-tight">Interested in <span class="gradient-text">co-creating?</span></h2>
-      <p class="text-gray-500 mb-8 max-w-lg mx-auto">Let’s build something bold together.</p>
+  <footer class="py-20 border-t border-white/10 text-center">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-4 tracking-tight">Fusion Language: <span class="gradient-text">Speak beyond limits.</span></h2>
+      <p class="text-gray-500 mb-8">Developed by a team of 5 visionaries under the leadership of CEO SAM.</p>
     </div>
   </footer>
 </body>
